@@ -3,7 +3,6 @@ var gulp      = require('gulp'),
     changed   = require('gulp-changed'),
     cp        = require('child_process'),
     gutil     = require('gulp-util'),
-    jade = require('gulp-jade'),
     prettify  = require('gulp-prettify'),
     sass      = require('gulp-sass');
 
@@ -11,33 +10,6 @@ var paths = {
   build:    '_site',
   css:      '_site/css',
   images:   ['assets/**/*.jpg'],
-  jade:     '_jade',
-  sass:     ['_sass'],
-  scripts:  ['js/*.js'],
-  svgs:     'assets/svg/*.svg'
-};
-
-function errorHandler(error) {
-  console.error(String(error));
-  this.emit('end');
-  browserSync.notify('Error');
-  gutil.beep();
-}
-
-var gulp      = require('gulp'),
-    browserSync = require('browser-sync'),
-    changed   = require('gulp-changed'),
-    cp        = require('child_process'),
-    gutil     = require('gulp-util'),
-    jade = require('gulp-jade'),
-    prettify  = require('gulp-prettify'),
-    sass      = require('gulp-sass');
-
-var paths = {
-  build:    '_site',
-  css:      '_site/css',
-  images:   ['assets/**/*.jpg'],
-  jade:     '_jade',
   sass:     ['_sass'],
   scripts:  ['js/*.js'],
   svgs:     'assets/svg/*.svg'
@@ -64,14 +36,14 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
 });
 
-gulp.task('jade', function(){
-  gulp.src(paths.jade + '/**/*.jade')
-    .pipe(jade({
-      pretty: true
-    }))
-    .pipe(gulp.dest('.'))
-    .pipe(browserSync.reload({stream:true}))
-})
+// gulp.task('jade', function(){
+//   gulp.src(paths.jade + '/**/*.jade')
+//     .pipe(jade({
+//       pretty: true
+//     }))
+//     .pipe(gulp.dest('.'))
+//     .pipe(browserSync.reload({stream:true}))
+// })
 
 gulp.task('sass', function () {
   return gulp.src(paths.sass + '/**/*.{scss,sass}')
@@ -98,7 +70,7 @@ gulp.task('indent', function(){
     .pipe(gulp.dest(paths.build));
 });
 
-gulp.task('serve', ['sass', 'js', 'jade', 'jekyll-build'], function() {
+gulp.task('serve', ['sass', 'js', 'jekyll-build'], function() {
   browserSync.init({
     server: {
       baseDir: paths.build
@@ -106,7 +78,6 @@ gulp.task('serve', ['sass', 'js', 'jade', 'jekyll-build'], function() {
   });
   gulp.watch( paths.sass + '/**/*.{scss,sass}', ['sass']);
   gulp.watch( paths.scripts , ['js']);
-  gulp.watch( paths.jade + '/**/*.jade', ['jade']);
   gulp.watch( './**/*.{html,yml}', ['jekyll-rebuild']);
 })
 
