@@ -9,7 +9,8 @@ url: "http://yourdomain.com"
 twitter_username: jekyllrb
 github_username:  jekyll
 
-# permalink: /:year/:title
+# Permalink only viewable when using 'jekyll server'
+# permalink: /:title
 markdown: kramdown
 include: [".htaccess"]
 exclude: ["bower_components", "node_modules", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "css/_breakpoints", "LICENSE", "README.md"]
