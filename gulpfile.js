@@ -4,6 +4,7 @@ var gulp      = require('gulp'),
     cp        = require('child_process'),
     gutil     = require('gulp-util'),
     prettify  = require('gulp-prettify'),
+    removeEmptyLines = require('gulp-remove-empty-lines'),
     sass      = require('gulp-sass');
 
 var paths = {
@@ -64,9 +65,10 @@ gulp.task('indent', function(){
   gulp.src([ paths.build + '/**/*.html' ])
     .pipe(prettify({
       indent_inner_html: true,
-      indent_with_tabs: true,
-      indent_size: 4
+      indent_with_tabs: false,
+      indent_size: 2
     }))
+    .pipe(removeEmptyLines())
     .pipe(gulp.dest(paths.build));
 });
 
@@ -78,7 +80,7 @@ gulp.task('serve', ['sass', 'js', 'jekyll-build'], function() {
   });
   gulp.watch( paths.sass + '/**/*.{scss,sass}', ['sass']);
   gulp.watch( paths.scripts , ['js']);
-  gulp.watch( './**/*.{html,yml}', ['jekyll-rebuild']);
+  gulp.watch( ['*.{html,yml}', '_includes/*', '_layouts/*', '_posts/*'], ['jekyll-rebuild']);
 })
 
 gulp.task('default', ['serve']);
