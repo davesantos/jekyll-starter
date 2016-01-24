@@ -2,6 +2,7 @@
 // Variables
 //================================
 
+
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   1em;
 $base-font-weight: 400;
@@ -11,12 +12,17 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:       #111;
-$background-color: #fdfdfd;
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
+
+$colors: (
+  'background'   : #ccc,
+  'hover'        : #f00,
+  'text'         : #111
+);
 // Width of the content area
 $content-width:    800px;
 $on-palm:          600px;

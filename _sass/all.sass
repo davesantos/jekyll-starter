@@ -3,9 +3,10 @@
 @import 'base/susy/language/susy'
 @import 'base/bourbon/bourbon'
 @import 'base/variables'
-@import "modules/mixins"
-@import "base"
-@import "syntax-highlighting"
+@import 'base/normalize'
+
+@import 'modules/mixins'
+@import 'modules/syntax-highlighting'
 
 // 1322 grid
 $total-columns  : 12
@@ -21,8 +22,9 @@ body
   +container()
   +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
   +font-smoothing
+  font-family: sans-serif
   -webkit-text-size-adjust: 100%
-  background-color: $background-color
+  background-color: map_get($colors, 'background')
   color: $text-color
   font-kerning: normal
   font-size: $base-font-size
@@ -56,6 +58,7 @@ a
   text-decoration: none
   &:visited
   &:hover
+    color: map_get($colors, 'hover')
 
 blockquote
   color: $grey-color
@@ -97,5 +100,5 @@ pre
 // Structure
 //================================
 
-.nav ul
-  @extend strip-list
+.nav ul, footer ul
+  @extend %strip-list
