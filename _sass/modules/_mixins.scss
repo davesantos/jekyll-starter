@@ -1,0 +1,54 @@
+//================================
+// Mixins
+//================================
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+
+@mixin font-smoothing($boolean: true) {
+  @if $boolean {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+     -moz-osx-font-smoothing: auto;
+  }
+}
+
+
+//================================
+// Placeholders
+//================================
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+//https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+
+%strip-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+

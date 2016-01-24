@@ -1,9 +1,9 @@
 // @charset "utf-8"
 
-@import "susy/language/susy"
-@import "bourbon/bourbon"
-@import "variables"
-@import "mixins"
+@import 'base/susy/language/susy'
+@import 'base/bourbon/bourbon'
+@import 'base/variables'
+@import "modules/mixins"
 @import "base"
 @import "syntax-highlighting"
 
@@ -13,22 +13,28 @@ $column-width   : 90px
 $gutter-width   : 20px
 $susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
 
+//================================
+// Globals
+//================================
+
 body
   +container()
-  color: $text-color
-  background-color: $background-color
+  +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
+  +font-smoothing
   -webkit-text-size-adjust: 100%
-  -webkit-font-feature-settings: "kern" 1
-  -moz-font-feature-settings: "kern" 1
-  -o-font-feature-settings: "kern" 1
-  font-feature-settings: "kern" 1
+  background-color: $background-color
+  color: $text-color
   font-kerning: normal
+  font-size: $base-font-size
+  padding-left: gutter()
+  padding-right: gutter()
 
 h1 h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm
   margin-bottom: $spacing-unit / 2
 
 img
   max-width: 100%
+  height: auto !important
   vertical-align: middle
 
 figure > img
@@ -62,10 +68,10 @@ blockquote
     margin-bottom: 0
 
 pre, code
-  font-size: 15px
-  border: 1px solid $grey-color-light
-  border-radius: 3px
   background-color: #eef
+  border-radius: 3px
+  border: 1px solid $grey-color-light
+  font-size: 15px
 
 code
   padding: 1px 5px
@@ -86,3 +92,10 @@ pre
     vertical-align: middle
     path
       fill: $grey-color
+
+//================================
+// Structure
+//================================
+
+.nav ul
+  @extend strip-list
