@@ -9,11 +9,11 @@ var gulp      = require('gulp'),
 
 var paths = {
   build:    '_site',
-  css:      '_site/css',
-  images:   ['assets/**/*.jpg'],
+  css:      '_assets',
+  images:   ['_assets/**/*.jpg'],
   sass:     ['_sass'],
-  scripts:  ['js/*.js'],
-  svgs:     'assets/svg/*.svg'
+  scripts:  ['_assets/js/*.js'],
+  svgs:     '_assets/svg/*.svg'
 };
 
 var messages = {
@@ -52,7 +52,7 @@ gulp.task('sass', function () {
       includePaths: [paths.sass] }).on('error', errorHandler))
     .pipe(gulp.dest(paths.css))
     .pipe(browserSync.reload({stream:true}))
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('_assets/css'));
 });
 
 gulp.task('js', function() {

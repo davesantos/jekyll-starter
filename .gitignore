@@ -1,6 +1,8 @@
 *.log
+*.lock
 .DS_Store
 .jekyll-metadata
+.asset-cache
 .sass-cache
 _site
 bower_components
