@@ -1,9 +1,17 @@
-// @charset "utf-8"
+@charset "utf-8"
+
+//================================
+// Base
+//================================
 
 @import 'base/susy/language/susy'
 @import 'base/bourbon/bourbon'
 @import 'base/variables'
 @import 'base/normalize'
+
+//================================
+// Modules
+//================================
 
 @import 'modules/mixins'
 @import 'modules/syntax-highlighting'
@@ -18,18 +26,7 @@ $susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-w
 // Globals
 //================================
 
-body
-  +container()
-  +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
-  +font-smoothing
-  font-family: sans-serif
-  -webkit-text-size-adjust: 100%
-  background-color: map_get($colors, 'background')
-  color: $text-color
-  font-kerning: normal
-  font-size: $base-font-size
-  padding-left: gutter()
-  padding-right: gutter()
+
 
 h1 h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm
   margin-bottom: $spacing-unit / 2
@@ -52,7 +49,6 @@ li > ul, > ol
   margin-bottom: 0
 
 h1, h2, h3, h4, h5, h6
-  font-weight: $base-font-weight
 
 a
   text-decoration: none
@@ -61,8 +57,8 @@ a
     color: map_get($colors, 'hover')
 
 blockquote
-  color: $grey-color
-  border-left: 4px solid $grey-color-light
+  color: map-get($colors, 'gray')
+  border-left: 4px solid map-get($colors, 'gray')-light
   padding-left: $spacing-unit / 2
   font-size: 18px
   letter-spacing: -1px
@@ -73,7 +69,7 @@ blockquote
 pre, code
   background-color: #eef
   border-radius: 3px
-  border: 1px solid $grey-color-light
+  border: 1px solid map-get($colors, 'gray')-light
   font-size: 15px
 
 code
@@ -94,11 +90,30 @@ pre
     height: 16px
     vertical-align: middle
     path
-      fill: $grey-color
+      fill: map-get($colors, 'gray')
 
 //================================
 // Structure
 //================================
+// .wf-active body, .wf-inactive body
+//   opacity: 1
 
+body
+  +container()
+  +font-smoothing
+  +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
+  +rootsize
+  font-family: $base-font-family
+  -webkit-text-size-adjust: 100%
+  background-color: map_get($colors, 'background')
+  color: map_get($colors, 'text')
+  font-kerning: normal
+  // opacity: 0
+  padding-left: gutter()
+  padding-right: gutter()
+
+
+.header
+  @extend %clearfix
 .nav ul, footer ul
   @extend %strip-list

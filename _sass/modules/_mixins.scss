@@ -1,7 +1,73 @@
 //================================
+// Import Variables
+//================================
+
+$sizes:   map-values($rootsizes);
+$points:  map-values($breakpoints);
+$leadings : map-values($lineheights);
+$breakpoints_total: length($breakpoints);
+
+//================================
+// Functions
+//================================
+
+@function spacing($multiple, $leading: 1.6em ) {
+  @return $leading * $multiple;
+}
+
+//================================
 // Mixins
 //================================
 
+@mixin font-smoothing($boolean: true) {
+  @if $boolean {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+     -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin breakpoint($break: 0, $max: 0) {
+  // Type of break variable
+  $value: type-of($break);
+
+  // If it is a string (i.e. a breakpoint variable).
+  @if $value == string {
+    // If using 'break-1', 'break-2' etc output the correct breakpoints from map.
+    @if map-has-key($breakpoints, $break) {
+      @media screen and (min-width: #{map-get($breakpoints, $break) } ) { @content; }
+
+    } @else {
+      @warn "#{$break} is not a set breakpoint variable";
+    }
+
+  // If it is a number, use this for the breakpoint.
+  } @else if $value == number {
+    // If using other numbers output value in ems either for min, min & max or max width breakpoints.
+    $query: "all" !default;
+    @if      $break != 0 and $max != 0 { $query: "(min-width: #{$break / 16 * 1em}) and (max-width: #{$max / 16 * 1em})"; }
+    @else if $break != 0 and $max == 0 { $query: "(min-width: #{$break / 16 * 1em})"; }
+    @else if $break == 0 and $max != 0 { $query: "(max-width: #{$max / 16 * 1em})"; }
+    @media #{$query} { @content; }
+
+  } @else {
+    @warn "#{$break} is not valid to use as a breakpoint";
+  }
+}
+
+@mixin rootsize {
+  font-size: nth($sizes, 1);
+  line-height: nth($leadings, 1);
+  // Loop through breakpoints.
+  @for $i from 2 through $breakpoints_total {
+    @media screen and (min-width: nth($points, $i) ) {
+      font-size: nth($sizes, $i);
+      line-height: nth($leadings, $i);
+    }
+  }
+}
 
 // Use media queries like this:
 // @include media-query($on-palm) {
@@ -18,15 +84,7 @@
 }
 
 
-@mixin font-smoothing($boolean: true) {
-  @if $boolean {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  } @else {
-    -webkit-font-smoothing: subpixel-antialiased;
-     -moz-osx-font-smoothing: auto;
-  }
-}
+
 
 
 //================================
