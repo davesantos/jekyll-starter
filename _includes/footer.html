@@ -1,0 +1,28 @@
+<footer>
+
+  <ul>
+    {% if site.github_username %}
+    <li>
+      {% include icon-github.html username=site.github_username %}
+    </li>
+    {% endif %}
+
+    {% if site.twitter_username %}
+    <li>
+      {% include icon-twitter.html username=site.twitter_username %}
+    </li>
+    {% endif %}
+  </ul>
+
+</footer>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script src="{{ "/js/libs/jquery.smoothState.js" | prepend: site.baseurl }}"></script> -->
+{% assign scripts = page.scripts %}
+
+{% if scripts %}
+  {% for js in scripts %}
+    <script src="{{ js | asset_path }}"></script>
+  {% endfor %}
+{% endif %}
+
+{% js all.js %}
