@@ -1,0 +1,10 @@
+<header class="header" role="banner">
+  <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+  <nav class="nav" role="navigation">
+    <ul>
+      {% assign pages_list = site.pages %}
+      {% assign group = 'navigation' %}
+      {% include pages_list.html %}
+    </ul>
+  </nav>
+</header>
