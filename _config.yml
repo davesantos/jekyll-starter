@@ -1,49 +1,24 @@
-title: Test Jekyll
-description: You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-url: "http://yourdomain.com"
-
-twitter_username: jekyllrb
-github_username:  jekyll
-
-# Add trailing slash to permalink
-permalink: /:year/:title/
-markdown: kramdown
-include: [".htaccess"]
-exclude: ["bower_components", "node_modules", "Gemfile", "*.lock", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "css/_breakpoints", "LICENSE", "README.md"]
-
-gems:
-- jekyll-assets
-
-assets:
-  prefix: "/assets"
-  sources:
-   - _assets/css
-   - _assets/images
-   - _assets/javascripts
-   - _assets/stylesheets
-   - _assets/fonts
-   - _assets/img
-   - _assets/js
-  features:
-    liquid: true
-
-# collections:
-#     projects:
-#         output: false
-#         permalink: /work/:path/
-
-
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       layout: "page"
-#   -
-#     scope:
-#       path: "work"
-#       type: "projects"
-#     values:
-#       layout: "project" # overrides previous default layout
-#       author: "Mr. Hyde"
+---
+title: Pymbo
+url: http://pymbo.siteleaf.net
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+    permalink: "/posts/:title/"
+- scope:
+    path: ''
+    type: pages
+  values:
+    layout: page
+permalink: pretty

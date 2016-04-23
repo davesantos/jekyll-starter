@@ -1,8 +1,10 @@
 ---
+title: Hello World
+date: 2016-01-24 06:13:13 Z
+categories:
+- jekyll
+- update
 layout: post
-title:  "Hello World"
-date:   2016-01-23 22:13:13 -0800
-categories: jekyll update
 stylesheets:
 - red.css
 ---
