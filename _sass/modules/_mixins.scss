@@ -11,8 +11,12 @@ $breakpoints_total: length($breakpoints);
 // Functions
 //================================
 
-@function spacing($multiple, $leading: 1.6em ) {
+@function spacing($multiple, $leading: $modular-scale-base ) {
   @return $leading * $multiple;
+}
+
+@function rand($min, $max) {
+  @return random($max - $min) + $min;
 }
 
 //================================

@@ -3,7 +3,7 @@
 //================================
 
 // Bourbon
-$modular-scale-ratio: $major-second;
+$modular-scale-ratio: $minor-second;
 //$modular-scale-base: 1.2em;
 
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -14,10 +14,10 @@ $small-font-size:  $base-font-size * 0.875;
 $spacing-unit:     modular-scale(2);
 
 $colors: (
-  'background'   : #ccc,
+  'background'   : #fff,
   'hover'        : #f00,
-  'text'         : #111,
-  'anchor'       : magenta,
+  'text'         : #000,
+  'anchor'       : #00f,
   'gray'         : #828282
 );
 $breakpoints: (
