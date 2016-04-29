@@ -61,7 +61,7 @@ gulp.task('js', function() {
     .pipe(browserSync.reload({stream:true}));
 })
 
-gulp.task('indent', function(){
+gulp.task('indent', ['jekyll-rebuild'] , function(){
   gulp.src([ paths.build + '/**/*.html' ])
     .pipe(prettify({
       indent_inner_html: true,
