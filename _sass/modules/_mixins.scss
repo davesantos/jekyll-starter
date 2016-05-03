@@ -1,13 +1,4 @@
 //================================
-// Import Variables
-//================================
-
-$sizes:   map-values($rootsizes);
-$points:  map-values($breakpoints);
-$leadings : map-values($lineheights);
-$breakpoints_total: length($breakpoints);
-
-//================================
 // Functions
 //================================
 
@@ -70,20 +61,6 @@ $breakpoints_total: length($breakpoints);
       font-size: nth($sizes, $i);
       line-height: nth($leadings, $i);
     }
-  }
-}
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-
-@mixin media-query($device) {
-  @media screen and (max-width: $device) {
-    @content;
   }
 }
 

@@ -1,7 +1,10 @@
 ---
-title: Pymbo
-url: http://pymbo.siteleaf.net
-timezone: UTC
+title: Hello World
+description: Foobar
+markdown: kramdown
+permalink: journal/:year/:title
+exclude: ["bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "css/_breakpoints", "LICENSE", "README.md"]
+
 collections:
   posts:
     title: Posts
@@ -9,6 +12,7 @@ collections:
   uploads:
     title: Uploads
     output: true
+
 defaults:
 - scope:
     path: ''
@@ -21,4 +25,3 @@ defaults:
     type: pages
   values:
     layout: page
-permalink: pretty

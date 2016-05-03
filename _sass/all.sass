@@ -27,7 +27,7 @@ $susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-w
 //================================
 
 p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm
-  margin-bottom: $spacing-unit
+  margin-bottom: spacing(1)
 
 img
   max-width: 100%
@@ -37,11 +37,8 @@ img
 figure > img
   display: block
 
-figcaption
-  font-size: $small-font-size
-
 ul, ol
-  margin-left: $spacing-unit
+  margin-left: spacing(1)
 
 li > ul, > ol
   margin-bottom: 0
@@ -59,7 +56,7 @@ a
 blockquote
   color: map-get($colors, 'gray')
   border-left: 4px solid map-get($colors, 'gray')-light
-  padding-left: $spacing-unit / 2
+  padding-left: spacing(1) / 2
   font-size: 18px
   letter-spacing: -1px
   font-style: italic
@@ -68,8 +65,6 @@ blockquote
 
 pre, code
   background-color: #eef
-  border-radius: 3px
-  border: 1px solid map-get($colors, 'gray')
   font-size: 15px
 
 code
@@ -103,7 +98,6 @@ body
   +font-smoothing
   +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
   +rootsize
-  font-family: $base-font-family
   -webkit-text-size-adjust: 100%
   background-color: map_get($colors, 'background')
   color: map_get($colors, 'text')
