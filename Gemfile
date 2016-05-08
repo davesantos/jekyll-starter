@@ -1,7 +1,9 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+gem 'bourbon'
+
 group :jekyll_plugins do
-  gem "jekyll-assets"
+  gem 'jekyll'
+  gem 'jekyll-assets'
 end
