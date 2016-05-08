@@ -1,3 +1,6 @@
+{% assign pages_list = site.pages %}
+{% assign group = 'navigation' %}
+
 {% for single in pages_list %}
   {% if group == null or group == single.group %}
     {% if page.url == single.url %}
@@ -7,5 +10,6 @@
     {% endif %}
   {% endif %}
 {% endfor %}
+
 {% assign pages_list = nil %}
 {% assign group = nil %}
