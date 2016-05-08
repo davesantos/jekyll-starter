@@ -1,3 +1,5 @@
+'use strict'
+
 var gulp      = require('gulp'),
     browserSync = require('browser-sync'),
     changed   = require('gulp-changed'),
@@ -9,11 +11,10 @@ var gulp      = require('gulp'),
 
 var paths = {
   build:    '_site',
-  css:      '_site/assets',
-  images:   ['_assets/**/*.jpg'],
+  css:      'assets/css',
+  images:   ['assets/**/*.jpg'],
   sass:     ['_sass'],
-  scripts:  ['_assets/js/*.js'],
-  svgs:     '_assets/svg/*.svg'
+  scripts:  ['assets/js']
 };
 
 var messages = {
@@ -50,25 +51,25 @@ gulp.task('sass', function () {
   return gulp.src(paths.sass + '/**/*.{scss,sass}')
     .pipe(sass({
       includePaths: [paths.sass] }).on('error', errorHandler))
-    .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(paths.build + '/' + paths.css))
     .pipe(browserSync.reload({stream:true}))
-    .pipe(gulp.dest('_assets/css'));
+    .pipe(gulp.dest(paths.css));
 });
 
 gulp.task('js', function() {
-  return gulp.src(paths.scripts)
-    .pipe(gulp.dest(paths.build + '/js'))
+  return gulp.src(paths.scripts + '/**/*.js')
+    .pipe(gulp.dest(paths.build + '/' + paths.scripts))
     .pipe(browserSync.reload({stream:true}));
 })
 
-gulp.task('indent', ['jekyll-rebuild'] , function(){
+gulp.task('prettify', ['jekyll-rebuild'] , function(){
   gulp.src([ paths.build + '/**/*.html' ])
     .pipe(prettify({
       indent_inner_html: true,
       indent_with_tabs: false,
       indent_size: 2
     }))
-    .pipe(removeEmptyLines())
+    // .pipe(removeEmptyLines())
     .pipe(gulp.dest(paths.build));
 });
 
@@ -78,9 +79,9 @@ gulp.task('serve', ['sass', 'js', 'jekyll-build'], function() {
       baseDir: paths.build
     }
   });
-  gulp.watch( paths.sass + '/**/*.{scss,sass}', ['sass']);
-  gulp.watch( paths.scripts , ['js']);
-  gulp.watch( ['*.{html,yml}', '_includes/*', '_layouts/*', '_posts/*'], ['jekyll-rebuild']);
+  gulp.watch( paths.sass + '/**/*', ['sass']);
+  gulp.watch( paths.scripts + '/**/*', ['js']);
+  gulp.watch( ['*.{html,yml}', '_includes/*', '_layouts/*', '_posts/*'], ['prettify']);
 })
 
 gulp.task('default', ['serve']);
