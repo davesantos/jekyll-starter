@@ -5,5 +5,5 @@ gem 'bourbon'
 
 group :jekyll_plugins do
   gem 'jekyll'
-  gem 'jekyll-assets'
+  # gem 'jekyll-assets'
 end

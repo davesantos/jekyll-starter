@@ -11,12 +11,14 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:type" content="website">
 
-  {% css all.css %}
+  {% assign asset_path = '/assets/'%}
+
+  <link type="text/css" rel="stylesheet" href="{{ 'all.css' | prepend: 'css/' | prepend: asset_path }}">
 
   {% assign stylesheets = page.stylesheets %}
   {% if stylesheets %}
     {% for style in stylesheets %}
-      <link type="text/css" rel="stylesheet" href="{{ style | asset_path }}">
+    <link type="text/css" rel="stylesheet" href="{{ style | prepend: 'css/' | prepend: asset_path }}">
     {% endfor %}
   {% endif %}
 

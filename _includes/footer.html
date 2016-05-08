@@ -1,28 +1,15 @@
-<footer>
-
-  <ul>
-    {% if site.github_username %}
-    <li>
-      {% include icon-github.html username=site.github_username %}
-    </li>
-    {% endif %}
-
-    {% if site.twitter_username %}
-    <li>
-      {% include icon-twitter.html username=site.twitter_username %}
-    </li>
-    {% endif %}
-  </ul>
-
+<footer class="footer">
+  <div class="inner">
+    <p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a></p>
+  </div>
 </footer>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<!-- <script src="{{ "/js/libs/jquery.smoothState.js" | prepend: site.baseurl }}"></script> -->
-{% assign scripts = page.scripts %}
 
+{% assign scripts = page.scripts %}
+<script src="{{ 'jquery.smoothState.min.js' | prepend: 'js/vendor/' | prepend: asset_path }}"></script>
+<script src="{{ 'all.js' | prepend: 'js/' | prepend: asset_path }}"></script>
 {% if scripts %}
   {% for js in scripts %}
-    <script src="{{ js | asset_path }}"></script>
+    <script src="{{ js | prepend: 'js/' | prepend: asset_path }}"></script>
   {% endfor %}
 {% endif %}
-
-{% js all.js %}
