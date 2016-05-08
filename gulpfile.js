@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var gulp      = require('gulp'),
     browserSync = require('browser-sync'),
@@ -7,15 +7,14 @@ var gulp      = require('gulp'),
     gutil     = require('gulp-util'),
     prettify  = require('gulp-prettify'),
     removeEmptyLines = require('gulp-remove-empty-lines'),
-    sass      = require('gulp-sass');
-
-var paths = {
-  build:    '_site',
-  css:      'assets/css',
-  images:   ['assets/**/*.jpg'],
-  sass:     ['_sass'],
-  scripts:  ['assets/js']
-};
+    sass      = require('gulp-sass'),
+    paths = {
+      build:    '_site',
+      css:      'assets/css',
+      images:   ['assets/**/*.jpg'],
+      sass:     ['_sass'],
+      scripts:  ['assets/js']
+    };
 
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
