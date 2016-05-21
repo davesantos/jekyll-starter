@@ -1,1 +1,7 @@
-<figure><img src="{{ include.url }}" alt="{{ include.description }}"/></figure>
+{% assign image_asset_path = '/assets/img/'%}
+{% assign image_url = include.url %}
+{% if image_url contains "http://" or image_url contains "https://" %}
+<figure><img src="{{ image_url }}" alt="{{ include.description }}"/></figure>
+{% else %}
+<figure><img src="{{ image_url | prepend: image_asset_path }}" alt="{{ include.description }}"/></figure>
+{% endif %}
