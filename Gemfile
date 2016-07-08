@@ -2,8 +2,9 @@
 source "https://rubygems.org"
 
 gem "sass"
-gem 'jekyll'
 gem 'bourbon'
+gem 'jekyll'
+gem 'jekyll-sitemap'
 
 group :jekyll_plugins do
   # gem 'jekyll-assets'
