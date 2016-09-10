@@ -1,0 +1,13 @@
+{% assign pages_list = site.pages | sort: "weight" %}
+{% assign group = 'navigation' %}
+{% for single in pages_list %}
+  {% if group == null or group == single.group %}
+    {% if page.url == single.url %}
+      <li class="active"><a href="{{single.url}}" class="active">{{single.title}}</a></li>
+    {% else %}
+      <li><a href="{{single.url}}">{{single.title}}</a></li>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign pages_list = nil %}
+{% assign group = nil %}

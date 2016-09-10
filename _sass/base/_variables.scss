@@ -1,0 +1,64 @@
+//------------------------------------------------------------
+//
+//  Variables
+//
+//------------------------------------------------------------
+
+// 1322 grid
+$total-columns  : 12;
+$column-width   : 90px;
+$gutter-width   : 20px;
+$susy: (
+  column-width: $column-width,
+  columns: $total-columns,
+  // debug: (image: show-columns),
+  global-box-sizing: border-box,
+  gutters: $gutter-width / $column-width
+);
+
+// Bourbon
+$modular-scale-ratio: $minor-second;
+//$modular-scale-base: 1.2em;
+$animation: (
+  speedIn : 200ms,
+  speedOut: 1200ms
+);
+$colors: (
+  'background'   : lemonchiffon,
+  'hover'        : #47FC00,
+  'text'         : #000,
+  'soft'         : rgba(0,0,0, 0.25),
+  'anchor'       : #000,
+  'gray'         : #828282,
+  'code'         : rgba(0, 0, 0, 0.05)
+);
+$nudge: (
+  mobile    : 2,
+  tablet    : 1,
+  desktop   : 2,
+  large     : 2
+);
+$breakpoints: (
+  mobile    : 481px,
+  tablet    : 768px,
+  desktop   : 1030px,
+  large     : 1240px
+);
+$rootsizes: (
+  mobile  :   modular-scale(0),
+  tablet  :   modular-scale(4),
+  desktop :   modular-scale(5),
+  large   :   modular-scale(6)
+);
+$lineheights: (
+  leading-1 :   modular-scale(5),
+  leading-2 :   modular-scale(5),
+  leading-3 :   modular-scale(5),
+  leading-4 :   modular-scale(7)
+);
+
+$sizes:   map-values($rootsizes);
+$points:  map-values($breakpoints);
+$leadings : map-values($lineheights);
+$breakpoints_total: length($breakpoints);
+

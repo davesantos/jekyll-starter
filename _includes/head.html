@@ -1,0 +1,36 @@
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:type" content="website">
+
+  {% assign asset_path = site.asset_path %}
+
+  <link type="text/css" rel="stylesheet" href="{{ 'all.css' | prepend: '/css/' | prepend: asset_path }}">
+
+  {% assign stylesheets = page.stylesheets %}
+
+  {% if stylesheets %}
+    {% for style in stylesheets %}
+      <link type="text/css" rel="stylesheet" href="{{ style | prepend: 'css/' | prepend: asset_path }}">
+    {% endfor %}
+  {% endif %}
+
+  {% if page.style %}
+   <style type="text/css">
+      {{ page.style }}
+   </style>
+  {% endif %}
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <script src="{{ 'modernizr.js' | prepend: 'js/vendor/' | prepend: asset_path }}"></script>
+
+</head>
