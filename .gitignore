@@ -1,0 +1,11 @@
+*.lock
+*.log
+.DS_Store
+.asset-cache
+.bundle
+.jekyll-metadata
+.sass-cache
+_site
+bower_components
+css
+node_modules
