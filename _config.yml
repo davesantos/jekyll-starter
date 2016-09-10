@@ -27,8 +27,9 @@ github_username:  jekyll
 
 # Dependancies
 
-# sass:
-#   sass_dir: _sass
+sass:
+  style: compressed
+  # sass_dir: _sass
 
 
 # Custom
