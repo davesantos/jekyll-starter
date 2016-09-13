@@ -37,7 +37,9 @@ github_username:  jekyll
 
 
 # Custom
-permalink: :year/:title/ # Don't forget trailing slash or it won't work on test server
+
+# Don't forget trailing slash or it won't work on test server
+permalink: :year/:title/
 exclude: ["Gemfile", "*.lock", "bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
 
 

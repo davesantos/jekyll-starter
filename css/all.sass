@@ -34,13 +34,12 @@
   opacity: 1
 
 body
-  padding-left: gutter()
-  padding-right: gutter()
-  opacity: 0
   +font-smoothing
   +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
   +rootsize
-
+  opacity: 0
+  padding-left: gutter()
+  padding-right: gutter()
 
 img
   -ms-interpolation-mode: bicubic
