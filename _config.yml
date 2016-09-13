@@ -27,8 +27,8 @@ github_username:  jekyll
 
 # Dependancies
 
-sass:
-  style: compressed
+# sass:
+  # style: compressed
   # sass_dir: _sass
 
 # Assets
@@ -37,9 +37,8 @@ sass:
 
 
 # Custom
-permalink: :year/:title
+permalink: :year/:title/ # Don't forget trailing slash or it won't work on test server
 exclude: ["Gemfile", "*.lock", "bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
-
 
 
 # Build settings
