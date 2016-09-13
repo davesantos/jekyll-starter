@@ -40,4 +40,3 @@ exclude: ["Gemfile", "*.lock", "bower_components", "node_modules", "config.rb", 
 
 # Build settings
 markdown: kramdown
-theme: minima
