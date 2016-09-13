@@ -31,6 +31,10 @@ sass:
   style: compressed
   # sass_dir: _sass
 
+# Assets
+# assets:
+  # asset_path: /assy/
+
 
 # Custom
 permalink: :year/:title
