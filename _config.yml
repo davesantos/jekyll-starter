@@ -20,13 +20,11 @@ github_username:  jekyll
 # assets:
   # asset_path: /assets/
 
-
 # Custom
 
 # Don't forget trailing slash or it won't work on test server
 permalink: :year/:title/
 exclude: ["Gemfile", "*.lock", "bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
-
 
 # Build settings
 markdown: kramdown
