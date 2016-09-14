@@ -6,4 +6,9 @@
     {% endcomment %}
   </div>
 </footer>
-
+{% assign scripts = page.scripts %}
+{% if scripts %}
+  {% for js in scripts %}
+    <script src="{{ js | prepend: 'js/' | prepend: asset_path }}"></script>
+  {% endfor %}
+{% endif %}
