@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "browser-sync": "^2.9.11",
+    "child_process": "^1.0.2",
     "del": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-changed": "^1.0.0",

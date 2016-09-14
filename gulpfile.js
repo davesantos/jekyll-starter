@@ -31,9 +31,9 @@ function errorHandler(error) {
   gutil.beep();
 }
 
-gulp.task('buildSite', shell.task(['jekyll build --incremental']));
+gulp.task('buildSite', shell.task(['bundle exec jekyll build --incremental']));
 
-gulp.task('jekyll-build', shell.task(['jekyll build --incremental --watch']));
+gulp.task('jekyll-build', shell.task(['bundle exec jekyll build --incremental --watch']));
 
 // gulp.task('jekyll-build', function (done) {
 //   browserSync.notify(messages.jekyllBuild);
@@ -44,10 +44,6 @@ gulp.task('jekyll-build', shell.task(['jekyll build --incremental --watch']));
 // gulp.task('jekyll-build', shell.task(['jekyll build --incremental --watch']));
 
 gulp.task('jekyll-rebuild', ['buildSite'], function() {
-  browserSync.reload();
-});
-
-gulp.task('sass', ['buildSite'], function() {
   browserSync.reload();
 });
 
@@ -77,9 +73,9 @@ gulp.task('clean', function(){
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('serve', ['sass', 'js', 'jekyll-build'], function() {
+gulp.task('serve', ['js', 'jekyll-build'], function() {
   browserSync.init({ server: { baseDir: paths.build } });
-  gulp.watch( [paths.sass + '/**/*', '_sass/*'], ['sass']);
+  gulp.watch( [paths.sass + '/**/*', '_sass/*'], ['jekyll-rebuild']);
   gulp.watch( paths.scripts + '/**/*', ['js']);
   gulp.watch( ['*.{html,yml,md}', '_includes/*', '_layouts/*', '_posts/*'], ['prettify']);
 })
