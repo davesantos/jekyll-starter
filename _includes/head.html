@@ -29,8 +29,8 @@
    </style>
   {% endif %}
 
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | replace: '//', '/' }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
-  <script src="{{ 'modernizr.js' | prepend: 'js/vendor/' | prepend: asset_path }}"></script>
+  <script src="{{ 'modernizr.js' | prepend: '/js/vendor/' | prepend: asset_path | replace: '//', '/' }}"></script>
 
 </head>
