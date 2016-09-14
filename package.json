@@ -12,5 +12,10 @@
     "gulp-shell": "^0.5.2",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davesantos/jekyll-starter.git"
   }
 }
