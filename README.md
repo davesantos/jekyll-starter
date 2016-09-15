@@ -15,10 +15,10 @@ npm install
 ```
 ### Included Tools
 
-- Bourbon
-- Modernizr
-- Normalize
-- Susy
+- [Bourbon](http://bourbon.io/)
+- [Modernizr](https://modernizr.com/)
+- [Normalize.css](https://necolas.github.io/normalize.css/)
+- [Susy](http://susy.oddbird.net/)
 
 ### Test on a local server
 
