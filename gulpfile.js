@@ -3,14 +3,13 @@
 var gulp      = require('gulp'),
     browserSync = require('browser-sync'),
     changed   = require('gulp-changed'),
-    cleanCSS = require('gulp-clean-css'),
+    cleanCSS  = require('gulp-clean-css'),
     cp        = require('child_process'),
-    gutil     = require('gulp-util'),
     prettify  = require('gulp-prettify'),
     removeEmptyLines = require('gulp-remove-empty-lines'),
     sass      = require('gulp-sass'),
     shell     = require('gulp-shell'),
-    uglify = require('gulp-uglify');
+    uglify    = require('gulp-uglify');
 
 var paths = {
   build:    '_site',
@@ -28,7 +27,6 @@ function errorHandler(error) {
   console.error(String(error));
   this.emit('end');
   browserSync.notify('Error');
-  gutil.beep();
 }
 
 gulp.task('jekyll-build', shell.task(['bundle exec jekyll build --incremental']));
