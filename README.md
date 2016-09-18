@@ -20,7 +20,7 @@ npm install
 
 - Navigation generator include
 - Easy Image include
-- Add Editorial style CSS to any page
+- Add custom CSS or entire stylesheets to any page through front-matter
 
 ### Included Tools
 
