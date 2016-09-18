@@ -10,7 +10,7 @@ Install gems defined in the `Gemfile`
 ```
 bundle install
 ```
-then install from `package.json`
+then install Node packages defined in `package.json`
 
 ```
 npm install
@@ -20,6 +20,7 @@ npm install
 
 - Navigation generator include
 - Easy Image include
+- Add Editorial style CSS to any page
 
 ### Included Tools
 
