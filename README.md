@@ -5,10 +5,12 @@ Setting up a Jekyll site from scratch takes quite a bit of a setup time. This pr
 
 ## Installation
 
+Install gems defined in the `Gemfile`
+
 ```
 bundle install
 ```
-then
+then install from `package.json`
 
 ```
 npm install
@@ -19,7 +21,6 @@ npm install
 - Navigation generator include
 - Easy Image include
 
-
 ### Included Tools
 
 - [Bourbon](http://bourbon.io/)
@@ -27,7 +28,7 @@ npm install
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 - [Susy](http://susy.oddbird.net/)
 
-### Test on a local server
+## Test on a local server
 
 ```
 gulp
