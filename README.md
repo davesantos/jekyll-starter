@@ -13,6 +13,13 @@ then
 ```
 npm install
 ```
+
+## Features
+
+- Navigation generator include
+- Easy Image include
+
+
 ### Included Tools
 
 - [Bourbon](http://bourbon.io/)
