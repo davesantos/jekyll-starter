@@ -1,9 +1,9 @@
 Jekyll Starter
 ===
 
-A starter Jekyll build without a theme dependancy.
+Setting up a Jekyll site from scratch takes quite a bit of a setup time. This project mitigates that problem by being a starter Jekyll build without a theme dependancy.
 
-### Installation
+## Installation
 
 ```
 bundle install
@@ -25,3 +25,7 @@ npm install
 ```
 gulp
 ```
+
+## License
+
+MIT
