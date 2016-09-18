@@ -69,7 +69,7 @@ gulp.task('minify-css', function() {
 gulp.task('serve', ['js', 'jekyll-build', 'minify-css'],  function() {
 
   browserSync.init({ server: { baseDir: paths.build } });
-  gulp.watch( [paths.sass + '/**/*', '_sass/*'], ['jekyll-rebuild']);
+  gulp.watch( [paths.sass + '/**/*', '_sass/**/*'], ['jekyll-rebuild']);
   gulp.watch( paths.scripts + '/**/*', ['js']);
   gulp.watch( ['*.{html,yml,md}', '_includes/*', '_layouts/*', '_posts/*'], ['prettify']);
 })
