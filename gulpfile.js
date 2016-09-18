@@ -31,7 +31,7 @@ function errorHandler(error) {
 
 gulp.task('jekyll-build', shell.task(['bundle exec jekyll build --incremental']));
 
-gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
+gulp.task('jekyll-rebuild', ['jekyll-build', 'minify-css'], function() {
   browserSync.reload();
 });
 
@@ -52,16 +52,21 @@ gulp.task('prettify', ['jekyll-build'] , function(){
     .pipe(gulp.dest(paths.build));
 });
 
-gulp.task('clean', function(){
-  gulp.src([ paths.build + '/' + paths.css])
-    .pipe( cleanCSS({ debug: true, keepBreaks: true, keepSpecialComments: false }, function(details) {
-      console.log(details.name + ': ' + details.stats.originalSize);
-      console.log(details.name + ': ' + details.stats.minifiedSize);
-    }) )
-    .pipe(gulp.dest('.'));
+gulp.task('minify-css', function() {
+  return gulp.src([ paths.build + '/' + paths.css + '/*.css'])
+    .pipe(
+      cleanCSS({
+        debug: true,
+        keepBreaks: true,
+        keepSpecialComments: false
+      }, function(details) {
+        console.log(details.name + ': ' + details.stats.originalSize + ' --> ' + details.stats.minifiedSize);
+      }
+    ))
+    .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', ['js', 'jekyll-build'],  function() {
+gulp.task('serve', ['js', 'jekyll-build', 'minify-css'],  function() {
 
   browserSync.init({ server: { baseDir: paths.build } });
   gulp.watch( [paths.sass + '/**/*', '_sass/*'], ['jekyll-rebuild']);
