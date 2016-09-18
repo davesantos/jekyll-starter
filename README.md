@@ -5,16 +5,10 @@ Setting up a Jekyll site from scratch takes quite a bit of a setup time. This pr
 
 ## Installation
 
-Install gems defined in the `Gemfile`
-
-```
-bundle install
-```
-then install Node packages defined in `package.json`
-
-```
-npm install
-```
+1. Fork or clone the repository
+2. Install ruby gems: `bundle install`
+3. Install node packages: `npm install`
+4. Type `gulp` to run
 
 ## Features
 
