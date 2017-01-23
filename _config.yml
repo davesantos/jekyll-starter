@@ -1,13 +1,27 @@
+<<<<<<< HEAD
 ---
 title: Hello World
 description: Foobar
 markdown: kramdown
 permalink: /posts/:title
 exclude: ["bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "css/_breakpoints", "LICENSE", "README.md"]
+=======
+title: Your awesome title
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+# url: "http://example.com" # the base hostname & protocol for your site
+twitter_username: jekyllrb
+github_username:  jekyll
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
 
 gems:
   - jekyll-sitemap
 
+<<<<<<< HEAD
 collections:
   posts:
     title: Posts
@@ -28,3 +42,23 @@ defaults:
     type: pages
   values:
     layout: page
+=======
+# Dependancies
+
+# sass:
+  # style: compressed
+  # sass_dir: _sass
+
+# Assets
+# assets:
+  # asset_path: /assets/
+
+# Custom
+
+# Don't forget trailing slash or it won't work on test server
+permalink: :year/:title/
+exclude: ["Gemfile", "modernizr-config.json", "*.lock", "bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
+
+# Build settings
+markdown: kramdown
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea

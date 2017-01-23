@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.log
 *.lock
 .DS_Store
@@ -7,4 +8,15 @@
 _site
 bower_components
 css
+=======
+*.lock
+*.log
+.DS_Store
+.asset-cache
+.bundle
+.jekyll-metadata
+.sass-cache
+_site
+bower_components
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
 node_modules

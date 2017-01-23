@@ -1,0 +1,54 @@
+---
+# Required front-matter (the dashes are enough)
+---
+
+@charset "utf-8"
+
+//------------------------------------------------------------
+//
+//  Base
+//
+//------------------------------------------------------------
+
+@import 'base/bourbon/bourbon'
+@import 'base/susy/language/susy'
+@import 'base/normalize'
+@import 'base/variables'
+@import 'base/syntax-highlighting'
+
+//------------------------------------------------------------
+//
+//  Modules
+//
+//------------------------------------------------------------
+
+@import 'modules/mixins'
+
+//------------------------------------------------------------
+//
+//  Structure
+//
+//------------------------------------------------------------
+
+.js body, .no-js body, .wf-active body, .wf-inactive body
+  opacity: 1
+
+body
+  +font-smoothing
+  +prefixer(font-feature-settings, "kern" 1, webkit moz o spec)
+  +rootsize
+  opacity: 0
+  padding-left: gutter()
+  padding-right: gutter()
+
+a
+  text-decoration: none
+
+img
+  -ms-interpolation-mode: bicubic
+  // margin-left: auto
+  // margin-right: auto
+  display: block
+  height: auto !important
+  max-width: 100%
+  vertical-align: middle

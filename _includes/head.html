@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+=======
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
@@ -11,6 +19,7 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:type" content="website">
 
+<<<<<<< HEAD
   {% assign asset_path = '/assets/'%}
 
   <link type="text/css" rel="stylesheet" href="{{ 'all.css' | prepend: 'css/' | prepend: asset_path }}">
@@ -19,6 +28,24 @@
   {% if stylesheets %}
     {% for style in stylesheets %}
     <link type="text/css" rel="stylesheet" href="{{ style | prepend: 'css/' | prepend: asset_path }}">
+=======
+  {% if site.twitter_username %}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  {% endif %}
+
+  {% assign asset_path = site.assets.asset_path %}
+
+  <link type="text/css" rel="stylesheet" href="{{ 'all.css' | prepend: '/css/' | prepend: asset_path | replace: '//', '/' }}">
+
+  {% assign stylesheets = page.stylesheets %}
+
+  {% if stylesheets %}
+    {% for style in stylesheets %}
+      <link type="text/css" rel="stylesheet" href="{{ style | prepend: 'css/' | prepend: asset_path | replace: '//', '/' }}">
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
     {% endfor %}
   {% endif %}
 
@@ -28,6 +55,14 @@
    </style>
   {% endif %}
 
+<<<<<<< HEAD
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 </head>
+=======
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | replace: '//', '/' }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <script src="{{ 'modernizr.js' | prepend: '/js/vendor/' | prepend: asset_path | replace: '//', '/' }}"></script>
+
+</head>
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea

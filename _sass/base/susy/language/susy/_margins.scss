@@ -73,7 +73,11 @@
   $pre,
   $post: false
 ) {
+<<<<<<< HEAD
   $inspect      : $pre, $post;
+=======
+  $inspect      : ($pre, $post);
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   $pre          : map-merge((spread: wide), parse-span($pre));
 
   @if $post {
@@ -88,7 +92,11 @@
     }
   }
 
+<<<<<<< HEAD
   @include susy-inspect(squish, $inspect...);
+=======
+  @include susy-inspect(squish, $inspect);
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   @include pre($pre);
   @include post($post);
 }

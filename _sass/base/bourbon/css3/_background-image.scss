@@ -12,8 +12,13 @@
     $spec-image: ();
 
     @if (type-of($image) == string) {
+<<<<<<< HEAD
       $url-str:       str-slice($image, 0, 3);
       $gradient-type: str-slice($image, 0, 6);
+=======
+      $url-str:       str-slice($image, 1, 3);
+      $gradient-type: str-slice($image, 1, 6);
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
 
       @if $url-str == "url" {
         $webkit-image: $image;

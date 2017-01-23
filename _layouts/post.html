@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<<<<<<< HEAD
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header>
@@ -10,6 +11,25 @@ layout: default
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
+=======
+<article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="article-header">
+
+    <div class="inner">
+      <h2 itemprop="name headline">{{ page.title }}</h2>
+      <p class="article-date"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    </div>
+
+  </header>
+
+  <div class="article-content" itemprop="articleBody">
+
+    <div class="inner">
+      {{ content }}
+    </div>
+
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   </div>
 
 </article>

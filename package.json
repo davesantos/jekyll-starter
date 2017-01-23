@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "browser-sync": "^2.9.11",
+<<<<<<< HEAD
     "del": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-changed": "^1.0.0",
@@ -9,5 +10,23 @@
     "gulp-remove-empty-lines": "0.0.2",
     "gulp-sass": "^2.0.4",
     "gulp-util": "^3.0.1"
+=======
+    "child_process": "^1.0.2",
+    "del": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^1.0.0",
+    "gulp-clean-css": "^2.0.8",
+    "gulp-prettify": "^0.3.0",
+    "gulp-remove-empty-lines": "0.0.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-shell": "^0.5.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davesantos/jekyll-starter.git"
+>>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   }
 }
