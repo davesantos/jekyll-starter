@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-# A sample Gemfile
-source "https://rubygems.org"
-
-gem "sass"
-gem 'bourbon'
-gem 'jekyll'
-gem 'jekyll-sitemap'
-
-group :jekyll_plugins do
-  # gem 'jekyll-assets'
-end
-=======
 source "https://rubygems.org"
 ruby RUBY_VERSION
 
@@ -30,4 +17,3 @@ gem 'susy'
 # group :jekyll_plugins do
 #   gem "jekyll-github-metadata", "~> 1.0"
 # end
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea

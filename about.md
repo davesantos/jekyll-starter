@@ -1,16 +1,4 @@
 ---
-<<<<<<< HEAD
-title: About
-permalink: "/about/"
-layout: page
-group: navigation
----
-
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
-
-{% include image.html url="/assets/img/pattern.jpg" description="Some cool pattern" %}
-=======
 layout: default
 title: About
 permalink: /about/
@@ -26,13 +14,9 @@ You can find the source code for the Jekyll new theme at:
 
 {% include icon-github.html username="jekyll" %} /
 [minima](https://github.com/jekyll/minima)
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
 
 You can find the source code for Jekyll at
 {% include icon-github.html username="jekyll" %} /
 [jekyll](https://github.com/jekyll/jekyll)
-<<<<<<< HEAD
-=======
 
 {% endcomment %}
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ##Getting started
 
 Use `bundle install`
@@ -37,4 +36,3 @@ gulp
 ## License
 
 MIT
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea

@@ -9,15 +9,8 @@
   $column-width
 ) {
   @if $math == static and not($column-width) {
-<<<<<<< HEAD
-    @warn 'Static math requires a valid column-width setting.';
-  } @else {
-    @return $column-width;
-  }
-=======
     @error 'Static math requires a valid column-width setting.';
   }
 
   @return $column-width;
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
 }
