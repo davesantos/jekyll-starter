@@ -1,12 +1,10 @@
-<<<<<<< HEAD
+Jekyll Starter
+===
+Setting up a Jekyll site from scratch takes quite a bit of a setup time. This project mitigates that problem by being a starter Jekyll build without a theme dependancy.
+
 ##Getting started
 
 Use `bundle install`
-=======
-Jekyll Starter
-===
-
-Setting up a Jekyll site from scratch takes quite a bit of a setup time. This project mitigates that problem by being a starter Jekyll build without a theme dependancy.
 
 ## Installation
 
@@ -53,4 +51,3 @@ gulp
 ## License
 
 MIT
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea

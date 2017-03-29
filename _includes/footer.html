@@ -1,21 +1,11 @@
 <footer class="footer">
   <div class="inner">
-<<<<<<< HEAD
-    <p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a></p>
-  </div>
-</footer>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-<script src="{{ 'all.js' | prepend: 'js/' | prepend: asset_path }}"></script>
-
-=======
     <p>Thanks for reading &#10548;</p>
     {% comment %}
     <p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a></p>
     {% endcomment %}
   </div>
 </footer>
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
 {% assign scripts = page.scripts %}
 {% if scripts %}
   {% for js in scripts %}

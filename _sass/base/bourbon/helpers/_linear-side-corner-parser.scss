@@ -1,21 +1,13 @@
 // Private function for linear-gradient-parser
 @function _linear-side-corner-parser($image, $first-val, $prefix, $suffix, $has-multiple-vals) {
-<<<<<<< HEAD
-  $val-1: str-slice($first-val, 0, $has-multiple-vals - 1 );
-=======
   $val-1: str-slice($first-val, 1, $has-multiple-vals - 1);
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   $val-2: str-slice($first-val, $has-multiple-vals + 1, str-length($first-val));
   $val-3: null;
   $has-val-3: str-index($val-2, " ");
 
   @if $has-val-3 {
     $val-3: str-slice($val-2, $has-val-3 + 1, str-length($val-2));
-<<<<<<< HEAD
-    $val-2: str-slice($val-2, 0, $has-val-3 - 1);
-=======
     $val-2: str-slice($val-2, 1, $has-val-3 - 1);
->>>>>>> 69b8cd3781720e6d760b92a45edbb1ea6cef61ea
   }
 
   $pos: _position-flipper($val-1) _position-flipper($val-2) _position-flipper($val-3);
