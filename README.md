@@ -8,12 +8,11 @@ Use `bundle install`
 
 ## Installation
 
-<<<<<<< HEAD
 1. Fork or clone the repository
 2. Install ruby gems: `bundle install`
 3. Install node packages: `npm install`
 4. Type `gulp` to run
-=======
+
 Install gems defined in the `Gemfile`
 
 ```
@@ -24,16 +23,12 @@ then install from `package.json`
 ```
 npm install
 ```
->>>>>>> parent of 75cd34a... Update README
 
 ## Features
 
 - Navigation generator include
 - Easy Image include
-<<<<<<< HEAD
 - Add custom CSS or entire stylesheets to any page through front-matter
-=======
->>>>>>> parent of 75cd34a... Update README
 
 ### Included Tools
 
