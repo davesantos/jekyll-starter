@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "stable"
+install:
+  - gem install bundle jekyll
 before_script:
   - npm install -g gulp
 script: gulp travis
