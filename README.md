@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/davesantos/jekyll-starter.svg?branch=master)](https://travis-ci.org/davesantos/jekyll-starter)
+
 [![Dependencies](https://david-dm.org/davesantos/jekyll-starter.svg)](https://david-dm.org/davesantos/jekyll-starter)
 
 Jekyll Starter
@@ -7,11 +8,6 @@ Setting up a Jekyll site from scratch takes quite a bit of a setup time. This pr
 
 
 ## Installation
-
-1. Fork or clone the repository
-2. Install ruby gems: `bundle install`
-3. Install node packages: `npm install`
-4. Type `gulp` to run
 
 Install gems defined in the `Gemfile`
 
@@ -24,7 +20,11 @@ then install Node.js packages from `package.json`
 ```
 npm install
 ```
+## Deploy
 
+```
+gulp
+```
 ## Features
 
 - Navigation generator include
@@ -38,12 +38,3 @@ npm install
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 - [Susy](http://susy.oddbird.net/)
 
-## Test on a local server
-
-```
-gulp
-```
-
-## License
-
-MIT
