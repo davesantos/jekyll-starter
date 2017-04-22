@@ -1,22 +1,21 @@
 'use strict';
 
-var gulp      = require('gulp'),
-    browserSync = require('browser-sync'),
-    changed   = require('gulp-changed'),
-    cleanCSS  = require('gulp-clean-css'),
-    cp        = require('child_process'),
-    prettify  = require('gulp-prettify'),
-    removeEmptyLines = require('gulp-remove-empty-lines'),
-    sass      = require('gulp-sass'),
-    shell     = require('gulp-shell'),
-    uglify    = require('gulp-uglify');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var changed = require('gulp-changed');
+var cleanCSS = require('gulp-clean-css');
+var cp = require('child_process');
+var prettify = require('gulp-prettify');
+var rmEmptyLines = require('gulp-remove-empty-lines');
+var sass = require('gulp-sass');
+var shell = require('gulp-shell');
+var uglify = require('gulp-uglify');
 
 var paths = {
-  build:    '_site',
-  css:      'css',
-  images:   ['assets/**/*.jpg'],
-  sass:     ['css'],
-  scripts:  ['assets/js']
+  build: '_site',
+  css: 'css',
+  sass: ['css'],
+  scripts: ['js']
 };
 
 var messages = {
@@ -29,31 +28,33 @@ function errorHandler(error) {
   browserSync.notify('Error');
 }
 
-gulp.task('jekyll-build', shell.task(['bundle exec jekyll build --incremental']));
+gulp.task('jekyll-build', shell.task(['bundle exec jekyll build']));
 
-gulp.task('jekyll-rebuild', ['jekyll-build', 'minify-css'], function() {
+gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
 });
 
 gulp.task('js', function() {
   return gulp.src(paths.scripts + '/**/*.js')
     .pipe(gulp.dest(paths.build + '/' + paths.scripts))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({
+      stream: true
+    }));
 });
 
-gulp.task('prettify', ['jekyll-build'] , function(){
-  gulp.src([ paths.build + '/**/*.html' ])
+gulp.task('prettify', ['jekyll-build'], function() {
+  gulp.src([paths.build + '/**/*.html'])
     .pipe(prettify({
       indent_inner_html: true,
       indent_with_tabs: false,
       indent_size: 2
     }))
-    .pipe(removeEmptyLines())
+    .pipe(rmEmptyLines())
     .pipe(gulp.dest(paths.build));
 });
 
-gulp.task('minify-css', function() {
-  return gulp.src([ paths.build + '/' + paths.css + '/*.css'])
+gulp.task('minify', function() {
+  return gulp.src([paths.build + '/' + paths.css + '/*.css'])
     .pipe(
       cleanCSS({
         debug: true,
@@ -61,17 +62,16 @@ gulp.task('minify-css', function() {
         keepSpecialComments: false
       }, function(details) {
         console.log(details.name + ': ' + details.stats.originalSize + ' --> ' + details.stats.minifiedSize);
-      }
-    ))
+      }))
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', ['js', 'jekyll-build', 'minify-css'],  function() {
+gulp.task('serve', ['js', 'jekyll-build', 'minify'], function() {
 
-  browserSync.init({ server: { baseDir: paths.build } });
-  gulp.watch( [paths.sass + '/**/*', '_sass/**/*'], ['jekyll-rebuild']);
-  gulp.watch( paths.scripts + '/**/*', ['js']);
-  gulp.watch( ['*.{html,yml,md}', '_includes/*', '_layouts/*', '_posts/*'], ['prettify']);
+  browserSync.init({ server: { baseDir: paths.build }});
+  gulp.watch([paths.sass + '/**/*', '_sass/**/*'], ['jekyll-rebuild']);
+  gulp.watch(paths.scripts + '/**/*', ['js']);
+  gulp.watch(['**/*.{html,yml,md}'], ['jekyll-rebuild']);
 })
 
 gulp.task('default', ['serve']);
