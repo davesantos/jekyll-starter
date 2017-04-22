@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/davesantos/jekyll-starter.svg?branch=master)](https://travis-ci.org/davesantos/jekyll-starter)
-
-[![Dependencies](https://david-dm.org/davesantos/jekyll-starter.svg)](https://david-dm.org/davesantos/jekyll-starter)
+[![Build Status](https://travis-ci.org/davesantos/jekyll-starter.svg?branch=master)](https://travis-ci.org/davesantos/jekyll-starter) [![Dependencies](https://david-dm.org/davesantos/jekyll-starter.svg)](https://david-dm.org/davesantos/jekyll-starter)
 
 Jekyll Starter
 ===
