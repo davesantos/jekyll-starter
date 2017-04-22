@@ -28,8 +28,8 @@ function errorHandler(error) {
   browserSync.notify('Error');
 }
 
-gulp.task('travis', ['default'], function(){
-
+gulp.task('travis', ['jekyll-build', 'js', 'prettify', 'minify'], function(){
+  console.log('complete');
 });
 
 gulp.task('jekyll-build', shell.task(['bundle exec jekyll build']));
