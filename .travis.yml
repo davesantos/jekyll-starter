@@ -1,7 +1,7 @@
 language: ruby
 rvm:
   - 2.4.1
-before_install:
+install:
   - gem install bundle jekyll
   - npm install
 before_script:
