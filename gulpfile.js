@@ -28,6 +28,10 @@ function errorHandler(error) {
   browserSync.notify('Error');
 }
 
+gulp.task('travis', ['default'], function(){
+
+});
+
 gulp.task('jekyll-build', shell.task(['bundle exec jekyll build']));
 
 gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
