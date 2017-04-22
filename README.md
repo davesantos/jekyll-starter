@@ -2,6 +2,8 @@ Jekyll Starter
 ===
 Setting up a Jekyll site from scratch takes quite a bit of a setup time. This project mitigates that problem without a theme dependancy.
 
+[![Build Status](https://travis-ci.org/davesantos/jekyll-starter.svg?branch=master)](https://travis-ci.org/davesantos/jekyll-starter)
+
 ## Installation
 
 1. Fork or clone the repository
