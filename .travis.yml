@@ -3,8 +3,10 @@ cache: bundler
 sudo: false
 rvm:
   - 2.4.1
-install:
+before_install:
   - gem install bundle jekyll
+install:
+  - bundle install
 before_script:
   - npm install
 script: gulp travis
