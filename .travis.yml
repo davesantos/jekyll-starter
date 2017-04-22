@@ -5,8 +5,7 @@ rvm:
   - 2.4.1
 install:
   - gem install bundle jekyll
-  - npm install
 before_script:
-  - npm install -g gulp
+  - npm install
 script: gulp travis
 
