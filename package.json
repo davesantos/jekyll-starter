@@ -1,4 +1,6 @@
 {
+  "name": "jekyll-starter",
+  "author": "Dave Santos <info@davesantos.com> (https://davesantos.com)",
   "devDependencies": {
     "browser-sync": "^2.9.11",
     "child_process": "^1.0.2",
