@@ -7,7 +7,7 @@ before_install:
   - gem install jekyll
 install:
   - bundle install
-+before_script:
+before_script:
   - npm install
 script: gulp travis
 
