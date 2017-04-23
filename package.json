@@ -1,14 +1,16 @@
 {
-  "devDependencies": {
-    "browser-sync": "^2.9.11",
-    "child_process": "^1.0.2",
+  "dependencies": {
     "gulp": "^3.9.1",
+    "browser-sync": "^2.9.11",
+    "gulp-shell": "^0.5.2",
+    "gulp-sass": "^2.0.4",
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
     "gulp-changed": "^1.0.0",
     "gulp-clean-css": "^3.0.4",
     "gulp-prettify": "^0.3.0",
     "gulp-remove-empty-lines": "0.0.2",
-    "gulp-sass": "^2.0.4",
-    "gulp-shell": "^0.5.2",
     "gulp-uglify": "^1.5.3"
   },
   "license": "MIT",
