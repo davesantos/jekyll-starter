@@ -1,13 +1,12 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var changed = require('gulp-changed');
-var cleanCSS = require('gulp-clean-css');
-var cp = require('child_process');
-var prettify = require('gulp-prettify');
-var rmEmptyLines = require('gulp-remove-empty-lines');
-var sass = require('gulp-sass');
-var shell = require('gulp-shell');
-var uglify = require('gulp-uglify');
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const changed = require('gulp-changed');
+const cleanCSS = require('gulp-clean-css');
+const prettify = require('gulp-prettify');
+const rmEmptyLines = require('gulp-remove-empty-lines');
+const sass = require('gulp-sass');
+const shell = require('gulp-shell');
+const uglify = require('gulp-uglify');
 
 var paths = {
   build: '_site',
@@ -30,7 +29,8 @@ gulp.task('travis', ['jekyll-build', 'js', 'prettify', 'minify'], function(){
   console.log('complete');
 });
 
-gulp.task('jekyll-build', shell.task(['bundle exec jekyll build']));
+gulp.task('jekyll-build', shell.task('bundle exec jekyll build'));
+gulp.task('greet', shell.task('echo Hello, World!'));
 
 gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
