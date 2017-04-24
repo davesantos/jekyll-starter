@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var cleanCSS = require('gulp-clean-css');
+var exec = require('child_process').exec
 var prettify = require('gulp-prettify');
 var rmEmptyLines = require('gulp-remove-empty-lines');
 var sass = require('gulp-sass');
@@ -24,12 +25,17 @@ function errorHandler(error) {
   browserSync.notify('Error');
 }
 
-gulp.task('travis', ['jekyll-build', 'js', 'prettify', 'minify'], function(){
+gulp.task('travis', ['jekyll-build', 'js', 'prettify', 'minify'], function() {
   console.log('complete');
 });
 
-gulp.task('jekyll-build', shell.task('bundle exec jekyll build'));
-gulp.task('greet', shell.task('echo Hello, World!'));
+gulp.task('jekyll-build', function(cb) {
+  exec('bundle exec jekyll build', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
+});
 
 gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
   browserSync.reload();
@@ -69,7 +75,11 @@ gulp.task('minify', function() {
 
 gulp.task('serve', ['js', 'jekyll-build', 'minify'], function() {
 
-  browserSync.init({ server: { baseDir: paths.build }});
+  browserSync.init({
+    server: {
+      baseDir: paths.build
+    }
+  });
   gulp.watch([paths.sass + '/**/*', '_sass/**/*'], ['jekyll-rebuild']);
   gulp.watch(paths.scripts + '/**/*', ['js']);
   gulp.watch(['**/*.{html,yml,md}'], ['jekyll-rebuild']);
