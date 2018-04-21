@@ -30,7 +30,7 @@ gulp
 - Easy Image include
 - Add custom CSS or entire stylesheets to any page through front-matter
 
-### Included Tools
+### Dependancies
 
 - [Bourbon](http://bourbon.io/)
 - [Modernizr](https://modernizr.com/)
