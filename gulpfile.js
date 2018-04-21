@@ -1,11 +1,12 @@
 var gulp = require('gulp');
-var exec = require('child_process').exec
 var browserSync = require('browser-sync');
 var cleanCSS = require('gulp-clean-css');
+var exec = require('child_process').exec
 var prettify = require('gulp-prettify');
 var rmEmptyLines = require('gulp-remove-empty-lines');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+
 
 var paths = {
   build: '_site',
