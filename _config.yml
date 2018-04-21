@@ -5,7 +5,7 @@ markdown: kramdown
 permalink: /posts/:title
 exclude: ["bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "css/_breakpoints", "LICENSE", "README.md"]
 
-gems:
+plugins:
   - jekyll-sitemap
 
 collections:
