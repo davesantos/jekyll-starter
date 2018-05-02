@@ -4,20 +4,10 @@
 //
 //------------------------------------------------------------
 
-// 1322 grid
-$total-columns  : 12;
-$column-width   : 90px;
-$gutter-width   : 20px;
-$susy: (
-  column-width: $column-width,
-  columns: $total-columns,
-  // debug: (image: show-columns),
-  global-box-sizing: border-box,
-  gutters: $gutter-width / $column-width
-);
-
 // Bourbon
-$modular-scale-ratio: $minor-second;
+$bourbon: (
+  "modular-scale-ratio": 1.067
+);
 //$modular-scale-base: 1.2em;
 
 $animation: (
@@ -33,12 +23,6 @@ $colors: (
   'gray'         : #828282,
   'code'         : rgba(0, 0, 0, 0.05)
 );
-$nudge: (
-  mobile    : 2,
-  tablet    : 1,
-  desktop   : 2,
-  large     : 2
-);
 $breakpoints: (
   mobile    : 481px,
   tablet    : 768px,
@@ -46,20 +30,19 @@ $breakpoints: (
   large     : 1240px
 );
 $rootsizes: (
-  mobile  :   modular-scale(0),
-  tablet  :   modular-scale(4),
-  desktop :   modular-scale(5),
-  large   :   modular-scale(6)
+  mobile  :   modular-scale(1),
+  tablet  :   modular-scale(2),
+  desktop :   modular-scale(3),
+  large   :   modular-scale(5)
 );
 $lineheights: (
-  leading-1 :   modular-scale(5),
-  leading-2 :   modular-scale(5),
-  leading-3 :   modular-scale(5),
-  leading-4 :   modular-scale(7)
+  leading-1 :   modular-scale(2),
+  leading-2 :   modular-scale(2),
+  leading-3 :   modular-scale(3),
+  leading-4 :   modular-scale(4)
 );
 
 $sizes:   map-values($rootsizes);
 $points:  map-values($breakpoints);
 $leadings : map-values($lineheights);
 $breakpoints_total: length($breakpoints);
-

@@ -28,7 +28,7 @@
       @warn "#{$break} is not a set breakpoint variable";
     }
 
-  // If it is a number, use this for the breakpoint.
+  // If it is a mber, use this for the breakpoint.
   } @else if $value == number {
     // If using other numbers output value in ems either for min, min & max or max width breakpoints.
     $query: "all" !default;
@@ -62,33 +62,4 @@
 
  @function spacing($multiple, $leading: $modular-scale-base ) {
   @return $leading * $multiple;
-}
-
-@function rand($min, $max) {
-  @return random($max - $min) + $min;
-}
-
-//------------------------------------------------------------
-//
-//  Placeholders
-//
-//------------------------------------------------------------
-
-%clearfix {
-  *zoom: 1;
-  &:before, &:after {
-    content: " ";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-//https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
-
-%strip-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
