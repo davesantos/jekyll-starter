@@ -4,11 +4,10 @@
 //
 //------------------------------------------------------------
 
-// Bourbon
+// Bourbon (Overwrite global Bourbon)
 $bourbon: (
   "modular-scale-ratio": 1.067
 );
-//$modular-scale-base: 1.2em;
 
 $animation: (
   speedIn : 200ms,
@@ -36,9 +35,9 @@ $rootsizes: (
   large   :   modular-scale(5)
 );
 $lineheights: (
-  leading-1 :   modular-scale(2),
-  leading-2 :   modular-scale(2),
-  leading-3 :   modular-scale(3),
+  leading-1 :   modular-scale(3),
+  leading-2 :   modular-scale(3),
+  leading-3 :   modular-scale(4),
   leading-4 :   modular-scale(4)
 );
 
