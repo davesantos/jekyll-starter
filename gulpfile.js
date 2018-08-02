@@ -25,9 +25,6 @@ function errorHandler(error) {
   browserSync.notify('Error');
 }
 
-gulp.task('travis', ['jekyll-build', 'js', 'prettify', 'minify'], function() {
-  console.log('complete');
-});
 
 gulp.task('jekyll-build', function(cb) {
   exec('bundle exec jekyll build', function(err, stdout, stderr) {
@@ -37,9 +34,9 @@ gulp.task('jekyll-build', function(cb) {
   });
 });
 
-gulp.task('jekyll-rebuild', ['jekyll-build'], function() {
+gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function() {
   browserSync.reload();
-});
+}));
 
 gulp.task('js', function() {
   return gulp.src(paths.scripts + '/**/*.js')
@@ -49,8 +46,8 @@ gulp.task('js', function() {
     }));
 });
 
-gulp.task('prettify', ['jekyll-build'], function() {
-  gulp.src([paths.build + '/**/*.html'])
+gulp.task('prettify', gulp.series('jekyll-build', function() {
+  return gulp.src([paths.build + '/**/*.html'])
     .pipe(prettify({
       indent_inner_html: true,
       indent_with_tabs: false,
@@ -58,7 +55,7 @@ gulp.task('prettify', ['jekyll-build'], function() {
     }))
     .pipe(rmEmptyLines())
     .pipe(gulp.dest(paths.build));
-});
+}));
 
 gulp.task('minify', function() {
   return gulp.src([paths.build + '/' + paths.css + '/*.css'])
@@ -68,21 +65,28 @@ gulp.task('minify', function() {
         keepBreaks: true,
         keepSpecialComments: false
       }, function(details) {
-        console.log(details.name + ': ' + details.stats.originalSize + ' --> ' + details.stats.minifiedSize);
+        console.log(details.name + ': ' + details.stats.originalSize + ' ==> ' + details.stats.minifiedSize);
       }))
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', ['js', 'jekyll-build', 'minify'], function() {
+gulp.task('serve', gulp.series(gulp.parallel('js', 'jekyll-build', 'minify'), function(done) {
 
   browserSync.init({
     server: {
       baseDir: paths.build
     }
   });
-  gulp.watch([paths.sass + '/**/*', '_sass/**/*'], ['jekyll-rebuild']);
-  gulp.watch(paths.scripts + '/**/*', ['js']);
-  gulp.watch(['**/*.{html,yml,md}'], ['jekyll-rebuild']);
-})
 
-gulp.task('default', ['serve']);
+  gulp.watch([paths.sass + '/**/*', '_sass/**/*'], gulp.parallel('jekyll-rebuild')).on('change', browserSync.reload);
+  gulp.watch(paths.scripts + '/**/*', gulp.parallel('js')).on('change', browserSync.reload);
+  gulp.watch(['**/*.{html,yml,md}'], gulp.parallel('jekyll-rebuild')).on('all', browserSync.reload);
+  return console.log('Serve function ran'), done();
+
+}));
+
+gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'prettify', 'minify'), function(done) {
+  console.log('complete'), done();
+}));
+
+gulp.task('default', gulp.series('serve'));
