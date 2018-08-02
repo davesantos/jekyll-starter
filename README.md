@@ -32,7 +32,6 @@ gulp
 
 ### Dependancies
 
-- [Bourbon](http://bourbon.io/)
 - [Modernizr](https://modernizr.com/)
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 

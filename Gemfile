@@ -11,7 +11,6 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 
 gem "jekyll", "3.8.0"
-gem 'bourbon'
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
