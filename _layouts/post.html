@@ -4,18 +4,15 @@ layout: default
 <article itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="article-header">
-
-    <div class="inner">
-      <h2 itemprop="name headline">{{ page.title }}</h2>
-      <p class="article-date"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-    </div>
-
+    <h2 itemprop="name headline">{{ page.title }}</h2>
+    <p class="article-date">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+      {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
+    </p>
   </header>
 
   <div class="article-content" itemprop="articleBody">
-
-    <div class="inner">
-      {{ content }}
-    </div>
+    {{ content }}
   </div>
+
 </article>
