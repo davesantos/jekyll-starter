@@ -1,7 +1,21 @@
+{% comment %}
+<!-----------------
+ Usage:
+{% include image.html src="http://yoursite.com/photo.jpg" alt="Your image description" %}
+or, use an image from asset path:
+{% include image.html src="photo.jpg" %}
+ --------------------->
+{% endcomment %}
 {% assign image_asset_path = '/assets/img/'%}
-{% assign image_url = include.url %}
-{% if image_url contains "http://" or image_url contains "https://" %}
-<figure><img src="{{ image_url }}" alt="{{ include.description }}"/></figure>
+{% assign image_src = include.src %}
+{% assign image_caption = include.caption %}
+{% assign image_alt = include.alt %}
+
+<figure>
+{% if image_src contains "http://" or image_src contains "https://" %}
+<img src="{{ image_src }}" alt="{{ image_alt }}"/>
 {% else %}
-<figure><img src="{{ image_url | prepend: image_asset_path }}" alt="{{ include.description }}"/></figure>
+<img src="{{ image_src | prepend: image_asset_path }}" alt="{{ image_alt }}"/>
 {% endif %}
+{% if image_caption %}<figcaption>{{ image_caption }}</figcaption>{% endif %}
+</figure>
