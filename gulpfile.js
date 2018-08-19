@@ -1,21 +1,23 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var cleanCSS = require('gulp-clean-css');
-var exec = require('child_process').exec
-var prettify = require('gulp-prettify');
-var rmEmptyLines = require('gulp-remove-empty-lines');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
+"use strict";
+
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const cleanCSS = require('gulp-clean-css');
+const exec = require('child_process').exec
+const prettify = require('gulp-prettify');
+const rmEmptyLines = require('gulp-remove-empty-lines');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
 
 
-var paths = {
+const paths = {
   build: '_site',
   css: 'css',
   sass: ['css'],
   scripts: ['js']
 };
 
-var messages = {
+const messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
@@ -80,7 +82,7 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'jekyll-build', 'minify'), fu
 
   gulp.watch([paths.sass + '/**/*', '_sass/**/*'], gulp.parallel('jekyll-rebuild')).on('change', browserSync.reload);
   gulp.watch(paths.scripts + '/**/*', gulp.parallel('js')).on('change', browserSync.reload);
-  gulp.watch(['**/*.{html,yml,md}'], gulp.parallel('jekyll-rebuild')).on('all', browserSync.reload);
+  gulp.watch(['**/*.{html,yml,md,markdown}'], gulp.parallel('jekyll-rebuild')).on('all', browserSync.reload);
   return console.log('Serve function ran'), done();
 
 }));
