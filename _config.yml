@@ -1,13 +1,27 @@
+# ----------------------------------
+#
+#             Jekyll Settings
+#
+# ----------------------------------
+
+baseurl: /
+
 title: Hello World
 description: Foobar
 markdown: kramdown
 exclude: ["Gemfile", "modernizr-config.json", "*.lock", "bower_components", "node_modules", "gulpfile.js", "package.json", "package-lock.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
+plugins:
+  - jekyll-sitemap
 
 # Don't forget trailing slash or it won't work on test server
 permalink: :year/:title/
 
-plugins:
-  - jekyll-sitemap
+# Github pages only runs in safe mode
+safe: true
+
+sass:
+  # style: compressed
+  # sass_dir: _sass
 
 collections:
   posts:
@@ -30,17 +44,20 @@ defaults:
   values:
     layout: page
 
+# ----------------------------------
+#
+#             Customization
+#
+# ----------------------------------
 
-sass:
-  # style: compressed
-  # sass_dir: _sass
+compress_html:
+  clippings: all
+  comments:  ["<!-- ", " -->"]
+  endings:   all
 
-# CUSTOM
+# assets:
+#   asset_path: /uploads/
 
 opengraph: false
-
-# Assets
-# assets:
-  # asset_path: assets/
 
 
