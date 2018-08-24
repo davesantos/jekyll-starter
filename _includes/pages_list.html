@@ -1,3 +1,20 @@
+{% comment %}
+<!-- USUAGE
+
+  Add include where you want the list to appear
+
+    {% include pages_list.html %}
+
+  Frontmatter of pages must include:
+
+    ---
+    group: navigation
+    weight: #
+    ---
+
+ -->
+{% endcomment %}
+
 {% assign pages_list = site.pages | sort: "weight" %}
 {% assign group = 'navigation' %}
 {% for single in pages_list %}
