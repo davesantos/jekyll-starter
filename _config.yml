@@ -1,9 +1,10 @@
----
 title: Hello World
 description: Foobar
 markdown: kramdown
-permalink: /posts/:title
-exclude: ["bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json","*.sublime-project", "*.sublime-workspace", "*.log", "css/_breakpoints", "LICENSE", "README.md"]
+exclude: ["Gemfile", "modernizr-config.json", "*.lock", "bower_components", "node_modules", "gulpfile.js", "package.json", "package-lock.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
+
+# Don't forget trailing slash or it won't work on test server
+permalink: :year/:title/
 
 plugins:
   - jekyll-sitemap
@@ -29,7 +30,6 @@ defaults:
   values:
     layout: page
 
-# Dependancies
 
 sass:
   # style: compressed
@@ -38,12 +38,3 @@ sass:
 # Assets
 # assets:
   # asset_path: /assets/
-
-# Custom
-
-# Don't forget trailing slash or it won't work on test server
-permalink: :year/:title/
-exclude: ["Gemfile", "modernizr-config.json", "*.lock", "bower_components", "node_modules", "config.rb", "gulpfile.js", "package.json", "package-lock.json","*.sublime-project", "*.sublime-workspace", "*.log", "LICENSE", "README.md"]
-
-# Build settings
-markdown: kramdown
