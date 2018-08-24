@@ -35,6 +35,12 @@ sass:
   # style: compressed
   # sass_dir: _sass
 
+# CUSTOM
+
+opengraph: false
+
 # Assets
 # assets:
-  # asset_path: /assets/
+  # asset_path: assets/
+
+
