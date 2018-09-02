@@ -2,7 +2,7 @@
   "name": "jekyll-starter",
   "author": "Dave Santos <info@davesantos.com> (https://davesantos.com)",
   "devDependencies": {
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.24.7",
     "child_process": "^1.0.2",
     "gulp": "^4.0.0",
     "gulp-clean-css": "3.10.0",
