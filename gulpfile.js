@@ -25,9 +25,18 @@ const jsFiles = [
   'js/**/*.js'
 ]
 
+const jekyllFiles = [
+  '*.{html,yml,md}',
+  '_posts/*.{markdown,md}',
+  '_layouts/**/*.html',
+  '_includes/**/*.html'
+];
+
 const messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
+
+
 
 function errorHandler(error) {
   console.error(String(error));
@@ -79,13 +88,14 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), fun
 
   browserSync.init({
     server: {
-      baseDir: paths.build
-    }
+      baseDir: paths.build,
+    },
+    notify: false
   });
 
+  gulp.watch(jekyllFiles).on('all', gulp.series('jekyll-build'));
   gulp.watch(sassFiles).on('change', gulp.series('jekyll-build'));
   gulp.watch(jsFiles).on('change', gulp.series('js'));
-  gulp.watch(['*.{html,yml,md,markdown}', '_posts/*.{html,yml,md,markdown}', '_layouts/*.{html,yml,md,markdown}', '_includes/**/*.{html,yml,md,markdown}']).on('all', gulp.series('jekyll-build'));
   gulp.watch(paths.build).on('all', browserSync.reload);
   return console.log('Initializing Server...'), done();
 
