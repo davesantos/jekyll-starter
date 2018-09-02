@@ -3,15 +3,14 @@
 
 Jekyll Starter
 ===
-Setting up a Jekyll site from scratch takes quite a bit of a setup time. This project mitigates that problem without a theme dependancy.
-
+Setting up a Jekyll site from scratch takes quite a bit of a setup time. This project mitigates that issue without a theme dependancy.
 
 ## Installation
 
 Install gems defined in the `Gemfile`
 
 ```
-gem install jekyll bundler
+gem install bundler
 bundle install
 ```
 then install Node.js packages from `package.json`
