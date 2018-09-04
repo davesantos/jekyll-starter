@@ -2,14 +2,14 @@
 
 import gulp from 'gulp';
 import sass from 'gulp-sass';
-
 import browserSync from 'browser-sync';
 import cleanCSS from 'gulp-clean-css';
-const exec = require('child_process').exec;
 import prettify from 'gulp-prettify';
 import rmEmptyLines from 'gulp-remove-empty-lines';
 import uglify from 'gulp-uglify';
+import child_process from 'child_process';
 
+const exec = child_process.exec;
 const paths = {
   build: '_site',
   css: 'css',
