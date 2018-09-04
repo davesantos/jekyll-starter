@@ -37,13 +37,13 @@ const messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
-const errorHandler = (error) => {
+const errorHandler = error => {
   console.error(String(error));
   this.emit('end');
   browserSync.notify('Error');
 }
 
-gulp.task('jekyll-build', (done) => {
+gulp.task('jekyll-build', done => {
   exec('bundle exec jekyll build', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
@@ -58,7 +58,6 @@ gulp.task('js', () => {
       stream: true
     }));
 });
-
 
 gulp.task('prettify', gulp.series('jekyll-build', () => {
   return gulp.src([paths.build + '/**/*.html'])
@@ -84,7 +83,7 @@ gulp.task('minify', () => {
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), (done) => {
+gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), done => {
 
   browserSync.init({
     server: {
@@ -101,7 +100,7 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), (do
 
 }));
 
-gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'prettify', 'minify'), (done) => {
+gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'prettify', 'minify'), done => {
   console.log('complete'), done();
 }));
 
