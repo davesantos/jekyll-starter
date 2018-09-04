@@ -12,11 +12,16 @@
     "gulp-prettify": "0.5.0",
     "gulp-remove-empty-lines": "0.1.0",
     "gulp-sass": "4.0.1",
-    "gulp-uglify": "3.0.1"
+    "gulp-uglify": "3.0.1",
+    "node-normalize-scss": "^8.0.0",
+    "node-sass": "^4.9.3"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/davesantos/jekyll-starter.git"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
   }
 }
