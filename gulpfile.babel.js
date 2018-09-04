@@ -44,7 +44,7 @@ const errorHandler = (error) => {
   browserSync.notify('Error');
 }
 
-gulp.task('jekyll-build', function(done) {
+gulp.task('jekyll-build', (done) => {
   exec('bundle exec jekyll build', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
@@ -52,7 +52,7 @@ gulp.task('jekyll-build', function(done) {
   });
 });
 
-gulp.task('js', function() {
+gulp.task('js', () => {
   return gulp.src(jsFiles)
     .pipe(gulp.dest(paths.build + '/' + paths.scripts))
     .pipe(browserSync.reload({
@@ -60,7 +60,7 @@ gulp.task('js', function() {
     }));
 });
 
-gulp.task('prettify', gulp.series('jekyll-build', function() {
+gulp.task('prettify', gulp.series('jekyll-build', () => {
   return gulp.src([paths.build + '/**/*.html'])
     .pipe(prettify({
       indent_inner_html: true,
@@ -71,7 +71,7 @@ gulp.task('prettify', gulp.series('jekyll-build', function() {
     .pipe(gulp.dest(paths.build));
 }));
 
-gulp.task('minify', function() {
+gulp.task('minify', () => {
   return gulp.src([paths.build + '/' + paths.css + '/*.css'])
     .pipe(
       cleanCSS({
@@ -84,7 +84,7 @@ gulp.task('minify', function() {
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), function(done) {
+gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), (done) => {
 
   browserSync.init({
     server: {
@@ -101,7 +101,7 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), fun
 
 }));
 
-gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'prettify', 'minify'), function(done) {
+gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'prettify', 'minify'), (done) => {
   console.log('complete'), done();
 }));
 
