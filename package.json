@@ -9,11 +9,10 @@
     "child_process": "^1.0.2",
     "gulp": "^4.0.0",
     "gulp-clean-css": "3.10.0",
-    "gulp-prettify": "0.5.0",
+    "gulp-htmltidy": "^0.2.4",
     "gulp-remove-empty-lines": "0.1.0",
     "gulp-sass": "4.0.1",
     "gulp-uglify": "3.0.1",
-    "node-normalize-scss": "^8.0.0",
     "node-sass": "^4.9.3"
   },
   "license": "MIT",

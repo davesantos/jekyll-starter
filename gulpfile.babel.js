@@ -4,7 +4,7 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import browserSync from 'browser-sync';
 import cleanCSS from 'gulp-clean-css';
-import prettify from 'gulp-prettify';
+import htmltidy from 'gulp-htmltidy';
 import rmEmptyLines from 'gulp-remove-empty-lines';
 import uglify from 'gulp-uglify';
 import child_process from 'child_process';
@@ -59,13 +59,11 @@ gulp.task('js', () => {
     }));
 });
 
-gulp.task('prettify', gulp.series('jekyll-build', () => {
+gulp.task('htmltidy', gulp.series('jekyll-build', () => {
   return gulp.src([paths.build + '/**/*.html'])
-    .pipe(prettify({
-      indent_inner_html: true,
-      indent_with_tabs: false,
-      indent_size: 2
-    }))
+    .pipe(htmltidy({doctype: 'html5',
+      hideComments: true,
+      indent: true}))
     .pipe(rmEmptyLines())
     .pipe(gulp.dest(paths.build));
 }));
@@ -100,7 +98,7 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), don
 
 }));
 
-gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'prettify', 'minify'), done => {
+gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'htmltidy', 'minify'), done => {
   console.log('complete'), done();
 }));
 
