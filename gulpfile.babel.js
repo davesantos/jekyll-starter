@@ -37,7 +37,6 @@ const messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
-
 const errorHandler = (error) => {
   console.error(String(error));
   this.emit('end');
@@ -45,7 +44,7 @@ const errorHandler = (error) => {
 }
 
 gulp.task('jekyll-build', (done) => {
-  exec('bundle exec jekyll build', function(err, stdout, stderr) {
+  exec('bundle exec jekyll build', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
     done(err);
@@ -59,6 +58,7 @@ gulp.task('js', () => {
       stream: true
     }));
 });
+
 
 gulp.task('prettify', gulp.series('jekyll-build', () => {
   return gulp.src([paths.build + '/**/*.html'])
