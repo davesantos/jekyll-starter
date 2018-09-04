@@ -1,13 +1,13 @@
 "use strict";
 
-let gulp = require('gulp');
-let browserSync = require('browser-sync');
-let cleanCSS = require('gulp-clean-css');
-let exec = require('child_process').exec
-let prettify = require('gulp-prettify');
-let rmEmptyLines = require('gulp-remove-empty-lines');
-let sass = require('gulp-sass');
-let uglify = require('gulp-uglify');
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const cleanCSS = require('gulp-clean-css');
+const exec = require('child_process').exec
+const prettify = require('gulp-prettify');
+const rmEmptyLines = require('gulp-remove-empty-lines');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
 
 const paths = {
   build: '_site',
@@ -37,8 +37,7 @@ const messages = {
 };
 
 
-
-function errorHandler(error) {
+const errorHandler = (error) => {
   console.error(String(error));
   this.emit('end');
   browserSync.notify('Error');
