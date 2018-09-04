@@ -1,12 +1,13 @@
 "use strict";
 
-const gulp = require('gulp');
+import gulp from 'gulp';
+import sass from 'gulp-sass';
+
 const browserSync = require('browser-sync');
 const cleanCSS = require('gulp-clean-css');
-const exec = require('child_process').exec
+const exec = require('child_process').exec;
 const prettify = require('gulp-prettify');
 const rmEmptyLines = require('gulp-remove-empty-lines');
-const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 
 const paths = {
