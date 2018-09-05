@@ -59,20 +59,13 @@ gulp.task('js', () => {
     }));
 });
 
-gulp.task('sass', () => {
+gulp.task('sass', gulp.series('jekyll-build', () => {
   return gulp.src(paths.sass + '/*.{sass,scss}')
     .pipe(sass({
        includePaths: ['node_modules']
     }).on('error', errorHandler))
-    // .pipe(cleanCSS({
-    //   debug: true,
-    //   keepBreaks: true,
-    //   keepSpecialComments: false
-    // }, function(details) {
-    //   console.log(details.name + ': ' + details.stats.originalSize + ' -> ' + details.stats.minifiedSize);
-    // }) )
     .pipe(gulp.dest(paths.build + '/' + paths.css))
-});
+}));
 
 gulp.task('htmltidy', gulp.series('jekyll-build', () => {
   return gulp.src([paths.build + '/**/*.html'])
@@ -96,7 +89,7 @@ gulp.task('minify', () => {
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), done => {
+gulp.task('serve', gulp.series(gulp.parallel('js', 'sass'), done => {
 
   browserSync.init({
     server: {
@@ -106,14 +99,14 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'minify','jekyll-build'), don
   });
 
   gulp.watch(jekyllFiles).on('all', gulp.series('jekyll-build'));
-  gulp.watch(sassFiles).on('change', gulp.series('jekyll-build'));
+  gulp.watch(sassFiles).on('change', gulp.series('sass'));
   gulp.watch(jsFiles).on('change', gulp.series('js'));
   gulp.watch(paths.build).on('all', browserSync.reload);
   return console.log('Initializing Server...'), done();
 
 }));
 
-gulp.task('travis', gulp.series(gulp.parallel('jekyll-build', 'js', 'htmltidy', 'minify'), done => {
+gulp.task('travis', gulp.series(gulp.parallel('sass', 'js', 'htmltidy', 'minify'), done => {
   console.log('complete'), done();
 }));
 
