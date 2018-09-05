@@ -13,7 +13,7 @@ const exec = child_process.exec;
 const paths = {
   build: '_site',
   css: 'css',
-  sass: ['css'],
+  sass: ['_sass'],
   scripts: ['js']
 };
 
@@ -57,6 +57,21 @@ gulp.task('js', () => {
     .pipe(browserSync.reload({
       stream: true
     }));
+});
+
+gulp.task('sass', () => {
+  return gulp.src(paths.sass + '/*.{sass,scss}')
+    .pipe(sass({
+       includePaths: ['node_modules']
+    }).on('error', errorHandler))
+    // .pipe(cleanCSS({
+    //   debug: true,
+    //   keepBreaks: true,
+    //   keepSpecialComments: false
+    // }, function(details) {
+    //   console.log(details.name + ': ' + details.stats.originalSize + ' -> ' + details.stats.minifiedSize);
+    // }) )
+    .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
 gulp.task('htmltidy', gulp.series('jekyll-build', () => {
