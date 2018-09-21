@@ -20,6 +20,11 @@
     "type": "git",
     "url": "https://github.com/davesantos/jekyll-starter.git"
   },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
   "dependencies": {
     "normalize.css": "^8.0.0"
   }
