@@ -20,8 +20,8 @@ plugins:
 safe: true
 
 sass:
-  # style: compressed
-  # sass_dir: _sass
+  style: compressed
+  sass_dir: _sass
 
 collections:
   posts:
@@ -51,9 +51,10 @@ defaults:
 # ----------------------------------
 
 compress_html:
+  blanklines: true
   clippings: all
-  comments:  ["<!-- ", " -->"]
-  endings:   all
+  # comments:  ["<!-- ", " -->"]
+  # endings:   all
 
 # assets:
 #   asset_path: /uploads/
