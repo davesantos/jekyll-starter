@@ -9,8 +9,8 @@ Setting up a Jekyll site from scratch takes quite a bit of a setup time. This pr
 
 Install gems defined in the `Gemfile`
 
-```
-gem install bundler
+```sh
+gem install bundler # If you don't have bundler already installed
 bundle install
 ```
 then install Node.js packages from `package.json`
@@ -25,12 +25,12 @@ gulp
 ```
 ## Features
 
+- Hot-reloading with [BrowserSync](https://browsersync.io/)
 - Navigation generator include
 - Easy Image include
 - Add custom CSS or entire stylesheets to any page through front-matter
 
 ### Dependancies
 
-- [Modernizr](https://modernizr.com/)
 - [Normalize.css](https://necolas.github.io/normalize.css/)
 
