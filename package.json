@@ -5,7 +5,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "browser-sync": "^2.24.7",
+    "browser-sync": "^2.26.3",
     "child_process": "^1.0.2",
     "gulp": "^4.0.0",
     "gulp-clean-css": "3.10.0",
@@ -13,7 +13,7 @@
     "gulp-remove-empty-lines": "0.1.0",
     "gulp-sass": "4.0.1",
     "gulp-uglify": "3.0.1",
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.9.4"
   },
   "license": "MIT",
   "repository": {
