@@ -98,7 +98,7 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'sass'), done => {
     notify: false
   });
 
-  gulp.watch(jekyllFiles).on('all', gulp.series('jekyll-build'));
+  gulp.watch(jekyllFiles).on('all', gulp.series('sass'));
   gulp.watch(sassFiles).on('change', gulp.series('sass'));
   gulp.watch(jsFiles).on('change', gulp.series('js'));
   gulp.watch(paths.build).on('all', browserSync.reload);
