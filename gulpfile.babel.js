@@ -27,8 +27,9 @@ const jsFiles = [
 ]
 
 const jekyllFiles = [
-  '*.{html,yml,md}',
+  '*.{html,yml,markdown,md}',
   '_posts/*.{markdown,md}',
+  '_projects/*.{markdown,md}',
   '_layouts/**/*.html',
   '_includes/**/*.html'
 ];
