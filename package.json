@@ -13,7 +13,8 @@
     "gulp-remove-empty-lines": "0.1.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "lodash.template": ">=4.5.0"
   },
   "license": "MIT",
   "repository": {
