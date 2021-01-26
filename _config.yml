@@ -78,7 +78,6 @@ exclude:
   - bower_components
   - gulpfile.js
   - gulpfile.babel.js
-  - modernizr-config.json
   - node_modules
   - package-lock.json
   - package.json
