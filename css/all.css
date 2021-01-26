@@ -1,7 +1,69 @@
+:root {
+  --maxWidth-none: "none";
+  --maxWidth-xs: 20rem;
+  --maxWidth-sm: 24rem;
+  --maxWidth-md: 28rem;
+  --maxWidth-lg: 32rem;
+  --maxWidth-xl: 36rem;
+  --maxWidth-2xl: 42rem;
+  --maxWidth-3xl: 48rem;
+  --maxWidth-4xl: 56rem;
+  --maxWidth-full: "100%";
+  --maxWidth-wrapper: var(--maxWidth-3xl);
+  --spacing-px: "1px";
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
+    Times, serif;
+  --font-body: var(--fontFamily-serif);
+  --font-heading: var(--fontFamily-sans);
+  --fontWeight-normal: 400;
+  --fontWeight-medium: 500;
+  --fontWeight-semibold: 600;
+  --fontWeight-bold: 700;
+  --fontWeight-extrabold: 800;
+  --fontWeight-black: 900;
+  --fontSize-root: 16px;
+  --lineHeight-none: 1;
+  --lineHeight-tight: 1.1;
+  --lineHeight-normal: 1.5;
+  --lineHeight-relaxed: 1.625;
+  /* 1.200 Minor Third Type Scale */
+  --fontSize-0: 0.833rem;
+  --fontSize-1: 1rem;
+  --fontSize-2: 1.2rem;
+  --fontSize-3: 1.44rem;
+  --fontSize-4: 1.728rem;
+  --fontSize-5: 2.074rem;
+  --fontSize-6: 2.488rem;
+  --fontSize-7: 2.986rem;
+  --color-primary: #005b99;
+  --color-text: #2e353f;
+  --color-text-light: hsla(0, 0%, 1%, 0.35);
+  --color-heading: #1a202c;
+  --color-heading-black: black;
+  --color-accent: #d1dce5;
+}
+
 @media screen and (min-width: 320px) {
   :root {
     font-size: calc(16px + (24 - 16) * (100vw - 320px)/(1600 - 320));
-    line-height: 1.5;
+    line-height: var(--lineHeight-normal);
   }
 }
 
@@ -45,6 +107,11 @@ img {
   opacity: 1;
 }
 
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 .main {
   flex: 1 0 auto;
 }
@@ -52,3 +119,80 @@ img {
 .footer {
   flex-shrink: 0;
 }
+
+/*
+
+Highlight JS
+
+ */
+
+ /**
+  * Syntax highlighting styles
+  */
+ .highlight {
+     background: #fff;
+ }
+
+ .highlighter-rouge .highlight {
+   background: #eef;
+ }
+
+ .c     { color: #998; font-style: italic }
+ .err   { color: #a61717; background-color: #e3d2d2 }
+ .k     { font-weight: bold }
+ .o     { font-weight: bold }
+ .cm    { color: #998; font-style: italic }
+ .cp    { color: #999; font-weight: bold }
+ .c1    { color: #998; font-style: italic }
+ .cs    { color: #999; font-weight: bold; font-style: italic }
+ .gd    { color: #000; background-color: #fdd }
+ .gd .x { color: #000; background-color: #faa }
+ .ge    { font-style: italic }
+ .gr    { color: #a00 }
+ .gh    { color: #999 }
+ .gi    { color: #000; background-color: #dfd }
+ .gi .x { color: #000; background-color: #afa }
+ .go    { color: #888 }
+ .gp    { color: #555 }
+ .gs    { font-weight: bold }
+ .gu    { color: #aaa }
+ .gt    { color: #a00 }
+ .kc    { font-weight: bold }
+ .kd    { font-weight: bold }
+ .kp    { font-weight: bold }
+ .kr    { font-weight: bold }
+ .kt    { color: #458; font-weight: bold }
+ .m     { color: #099 }
+ .s     { color: #d14 }
+ .na    { color: #008080 }
+ .nb    { color: #0086B3 }
+ .nc    { color: #458; font-weight: bold }
+ .no    { color: #008080 }
+ .ni    { color: #800080 }
+ .ne    { color: #900; font-weight: bold }
+ .nf    { color: #900; font-weight: bold }
+ .nn    { color: #555 }
+ .nt    { color: #000080 }
+ .nv    { color: #008080 }
+ .ow    { font-weight: bold }
+ .w     { color: #bbb }
+ .mf    { color: #099 }
+ .mh    { color: #099 }
+ .mi    { color: #099 }
+ .mo    { color: #099 }
+ .sb    { color: #d14 }
+ .sc    { color: #d14 }
+ .sd    { color: #d14 }
+ .s2    { color: #d14 }
+ .se    { color: #d14 }
+ .sh    { color: #d14 }
+ .si    { color: #d14 }
+ .sx    { color: #d14 }
+ .sr    { color: #009926 }
+ .s1    { color: #d14 }
+ .ss    { color: #990073 }
+ .bp    { color: #999 }
+ .vc    { color: #008080 }
+ .vg    { color: #008080 }
+ .vi    { color: #008080 }
+ .il    { color: #099 }
