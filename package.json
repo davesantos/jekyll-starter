@@ -13,8 +13,9 @@
     "gulp-remove-empty-lines": "0.1.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
+    "lodash.template": ">=4.5.0",
     "node-sass": "^4.14.1",
-    "lodash.template": ">=4.5.0"
+    "normalize.css": "^8.0.1"
   },
   "license": "MIT",
   "repository": {
@@ -31,7 +32,5 @@
     "clean": "bundle exec jekyll clean",
     "serve": "bundle exec jekyll serve"
   },
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  }
+  "dependencies": {}
 }
