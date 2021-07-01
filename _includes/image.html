@@ -15,8 +15,7 @@ or, use an image from asset path:
 {% if image_src contains "http://" or image_src contains "https://" %}
 <img src="{{ image_src }}" alt="{{ image_alt }}"/>
 {% else %}
-<img src="{{ image_src | prepend: image_asset_path }}" alt="{{ image_alt }}"/>
+<img src="{{ image_src }}" alt="{{ image_alt }}"/>
 {% endif %}
 {% if image_caption %}<figcaption>{{ image_caption }}</figcaption>{% endif %}
 </figure>
-

@@ -14,15 +14,27 @@
 
  -->
 {% endcomment %}
-
+{% assign site_title = site.title %}
 {% assign pages_list = site.pages | sort: "weight" %}
 {% assign group = 'navigation' %}
 {% for single in pages_list %}
   {% if group == null or group == single.group %}
     {% if page.url == single.url %}
-      <li class="active"><a href="{{single.url}}" class="active">{{single.title}}</a></li>
+      <li class="active"><a href="{{single.url}}" class="active">
+        {%if single.title == 'Home' %}
+          {{ site_title }}
+        {% else %}
+          {{single.title}}
+        {% endif %}
+      </a></li>
     {% else %}
-      <li><a href="{{single.url}}">{{single.title}}</a></li>
+      <li><a href="{{single.url}}">
+        {%if single.title == 'Home' %}
+          {{ site_title }}
+        {% else %}
+          {{single.title}}
+        {% endif %}
+      </a></li>
     {% endif %}
   {% endif %}
 {% endfor %}
