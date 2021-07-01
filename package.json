@@ -11,10 +11,11 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-htmltidy": "^0.2.4",
     "gulp-remove-empty-lines": "0.1.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
-    "node-sass": "^4.14.1",
-    "lodash.template": ">=4.5.0"
+    "lodash.template": ">=4.5.0",
+    "node-sass": "^6.0.1",
+    "normalize.css": "^8.0.1"
   },
   "license": "MIT",
   "repository": {
@@ -26,7 +27,9 @@
       "env"
     ]
   },
-  "dependencies": {
-    "normalize.css": "^8.0.1"
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "clean": "bundle exec jekyll clean",
+    "serve": "bundle exec jekyll serve"
   }
 }
