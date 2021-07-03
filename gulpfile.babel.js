@@ -1,7 +1,6 @@
 "use strict";
 
 import gulp from 'gulp';
-import sass from 'gulp-sass';
 import browserSync from 'browser-sync';
 import cleanCSS from 'gulp-clean-css';
 import htmltidy from 'gulp-htmltidy';
@@ -13,13 +12,11 @@ const exec = child_process.exec;
 const paths = {
   build: '_site',
   css: 'css',
-  sass: ['_sass'],
   scripts: ['js']
 };
 
-const sassFiles = [
+const cssFiles = [
   'css/**/*',
-  '_sass/**/*'
 ]
 
 const jsFiles = [
@@ -29,7 +26,6 @@ const jsFiles = [
 const jekyllFiles = [
   '*.{html,yml,markdown,md}',
   '_posts/*.{markdown,md}',
-  '_projects/*.{markdown,md}',
   '_layouts/**/*.html',
   '_includes/**/*.html'
 ];
@@ -60,11 +56,11 @@ gulp.task('js', () => {
     }));
 });
 
-gulp.task('sass', gulp.series('jekyll-build', () => {
-  return gulp.src(paths.sass + '/*.{sass,scss}')
-    .pipe(sass({
-       includePaths: ['node_modules']
-    }).on('error', errorHandler))
+gulp.task('css-build', gulp.series('jekyll-build', () => {
+  return gulp.src(paths.css + '/*.css')
+    // .pipe(sass({
+    //    includePaths: ['node_modules']
+    // }).on('error', errorHandler))
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 }));
 
@@ -90,7 +86,7 @@ gulp.task('minify', () => {
     .pipe(gulp.dest(paths.build + '/' + paths.css))
 });
 
-gulp.task('serve', gulp.series(gulp.parallel('js', 'sass'), done => {
+gulp.task('serve', gulp.series(gulp.parallel('js', 'css-build'), done => {
 
   browserSync.init({
     server: {
@@ -99,15 +95,15 @@ gulp.task('serve', gulp.series(gulp.parallel('js', 'sass'), done => {
     notify: false
   });
 
-  gulp.watch(jekyllFiles).on('all', gulp.series('sass'));
-  gulp.watch(sassFiles).on('change', gulp.series('sass'));
+  gulp.watch(jekyllFiles).on('all', gulp.series('css-build'));
+  gulp.watch(cssFiles).on('change', gulp.series('css-build'));
   gulp.watch(jsFiles).on('change', gulp.series('js'));
   gulp.watch(paths.build).on('all', browserSync.reload);
   return console.log('Initializing Server...'), done();
 
 }));
 
-gulp.task('travis', gulp.series(gulp.parallel('sass', 'js', 'htmltidy', 'minify'), done => {
+gulp.task('travis', gulp.series(gulp.parallel('css-build', 'js', 'htmltidy', 'minify'), done => {
   console.log('complete'), done();
 }));
 
